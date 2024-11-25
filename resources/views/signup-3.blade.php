@@ -44,19 +44,59 @@
                     <p class="text-gray-500 font-medium text-xs text-center">Novella Account</p>
                 </div>
 
-                <div class="hidden lg:block lg:w-1/3 h-[2px] bg-gray-300"></div>
+                <div class="hidden lg:block lg:w-1/3 h-[2px] bg-[#011B33]"></div>
                 <div class="flex flex-col items-center space-y-1">
-                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 text-gray-500 text-sm">3</div>
+                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-[#011B33] text-white text-sm">3</div>
                     <p class="text-[#011B33] font-semibold text-xs">Third Step</p>
                     <p class="text-gray-500 font-medium text-xs text-center">Account Information</p>
                 </div>
             </div>
 
-            <p class="text-[#011B33] font-semibold text-lg lg:text-xl mb-6">Library Information</p>
+        <!-- Confirmation Email Section -->
+        <div class="flex flex-col items-center justify-center text-center mt-12 bg-white rounded-lg shadow-lg p-8">
+            <!-- Icon -->
+            <div class="flex justify-center mb-6">
+                <img src="/images/email.png" alt="Envelope Icon" class="w-12 h-12">
+            </div>
+            <!-- Title -->
+            <h2 class="text-lg font-semibold text-gray-800 mb-2">Verify your email address</h2>
+            <!-- Instruction Text -->
+            <p class="text-sm text-gray-600 mb-6">
+                In order to start using your account, you need to confirm your email address.
+            </p>
+            <!-- Verify Button -->
+            <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                Verify Email Address
+            </button>
+            <!-- Additional Information -->
+            <p class="text-xs text-gray-500 mt-6">
+                If you did not sign up for this account, you can ignore this email, and the account will be deleted.
+            </p>
+            
+            <!-- Divider -->
+            {{-- <hr class="my-6 border-gray-200"> --}}
+
+            <!-- App Store Links -->
+            {{-- <div class="flex justify-center space-x-4">
+                <a href="#">
+                    <img src="path-to-appstore-badge.svg" alt="App Store" class="h-10">
+                </a>
+                <a href="#">
+                    <img src="path-to-googleplay-badge.svg" alt="Google Play" class="h-10">
+                </a>
+            </div> --}}
+
+        </div>
+
 
             
         </div>
     </section>
+
+    <script>
+        document.getElementById('emailConfirmationModal').classList.remove('hidden');
+
+    </script>
 
 
 
