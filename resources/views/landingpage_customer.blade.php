@@ -88,7 +88,7 @@
          <!-- Footer -->
         <footer class="flex flex-col md:flex-row justify-between items-start md:items-center px-8 md:px-16 lg:px-60 py-8 bg-[#011b33] text-white text-sm space-y-6 md:space-y-0">
                 <!-- Left Section: Logo and Contact Information -->
-                <div class="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-9">
+                <div class="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-8">
                         <!-- Logo -->
                         <img src="./images/logo_login_headerC.png" alt="library logo" class="w-32 md:w-[135px]">
                         <!-- Contact Info -->
