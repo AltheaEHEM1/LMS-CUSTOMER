@@ -11,7 +11,7 @@
 <body class="bg-[#E4ECFF] font-poppins">
 
     <section class="min-h-screen flex flex-col lg:flex-row items-center justify-center p-4 lg:p-0">
-        <!-- Left Column (Image) -->
+        <!-- Left Column (Image) --->
         <div class="w-full lg:w-[55%] bg-cover bg-center relative mb-6 lg:mb-0">
             <img src="images/signup_leftimage.jpg" alt="Background Image" class="w-full h-[300px] lg:h-screen object-cover rounded-lg lg:rounded-r-[30px] drop-shadow-lg">
             <!-- Transparent Overlay -->

@@ -26,7 +26,7 @@
             class="mt-1 p-3 w-full rounded-md border border-gray-300 focus:ring-[#011b33] focus:border-[#011b33] text-black" required>
     </div>
 
-    <!-- Password Input -->
+    <!-- Password Input --->
     <div class="relative">
         <label for="password" class="block text-sm font-medium text-gray-300 text-left">
             Password <span class="text-red-500">*</span>

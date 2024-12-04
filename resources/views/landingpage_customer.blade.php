@@ -36,7 +36,7 @@
                         <li><a href="#" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
                 </ul>
 
-                <!-- Right-aligned Shelf and My Account -->
+                <!-- Right-aligned Shelf and My Account --->
                 <div class="flex items-center space-x-12 hidden md:flex">
                         <a href="#" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a>
                         <!-- My Account with Dropdown -->

@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 //if you want to run the log in of customer
 //start ito
-// Route::get('/', function () {
-//     return view('login_customer');
-// });
+Route::get('/', function () {
+    return view('login_customer');
+});
 
-// Route::get('/landingpage_customer', function () {
-//     return view('landingpage_customer');
-// });
-///END// itong buong block sa taas i run
+Route::get('/landingpage_customer', function () {
+     return view('landingpage_customer');
+});
 
+Route::get('/signup', function () {
     return view('signup');
 });
 
@@ -47,4 +47,18 @@ Route::post('/signup-3', function () {
     return view('signup-3');
 });
 
+Route::get('/login_customer', function () {
+    return view('login_customer');
+});
+
+
+
+///END// itong buong block sa taas i run
+
+// Route::get('/', function () {
+//     return view('landingpage_customer');
+// });
+// Route::get('/', function () {
+//     return view('landingpage_employee');
+// });
 

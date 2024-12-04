@@ -81,7 +81,7 @@
                                 <i class="fas fa-chevron-down text-gray-600"></i>
                             </button>
 
-                            <!-- Dropdown Menu -->
+                            <!-- Dropdown Menu --->
                             <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
                                 <div class="flex items-center px-4 py-3">
                                     <div class="w-8 h-8 bg-gray-300 rounded-full"></div> <!-- Placeholder for profile image -->

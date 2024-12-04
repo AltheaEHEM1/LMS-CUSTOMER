@@ -71,7 +71,7 @@
                 >
 
                 <div class="absolute inset-0 flex items-start justify-center pt-16"> 
-                    <!-- Overlay Container -->
+                    <!-- Overlay Container --->
                     <div class="bg-[#011b33] bg-opacity-40 rounded-xl w-[70%] h-[90%] p-10 flex flex-col justify-start items-center"> 
                         <!-- Text Content -->
                         <div class="text-left text-white space-y-2">
