@@ -31,19 +31,19 @@
 
                 <!-- Centered Navigation Links -->
                 <ul class="flex space-x-12 hidden md:flex">
-                        <li><a href="#" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-home mr-2"></i> Home</a></li>
-                        <li><a href="#" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
-                        <li><a href="#" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
+                        <li><a href="/HOMElandingpage_customer" class="text-[#028ABE] flex items-center font-bold hover:text-[#028ABE]"><i class="fa fa-home mr-2"></i> Home</a></li>
+                        <li><a href="/RESERVATIONreservation-page" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
+                        <li><a href="/ABOUTUSpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
                 </ul>
 
                 <!-- Right-aligned Shelf and My Account --->
                 <div class="flex items-center space-x-12 hidden md:flex">
-                        <a href="#" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a>
+                        <a href="/SHELFpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a>
                         <!-- My Account with Dropdown -->
                         <div class="relative">
                                 <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>
                                 <ul id="dropdownMenu" class="absolute hidden bg-[#011b33] text-white rounded-md shadow-lg mt-2 py-2 w-48">
-                                        <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"><i class="fa fa-user-circle mr-2"></i> Profile</a></li>
+                                        <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"><i class="fa fa-user-circle mr-2"></i> Profile</a></li>
                                         <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"> <i class="fa fa-sign-out-alt mr-2"></i> Log Out</a></li>
                                 </ul>
                         </div>
@@ -67,11 +67,11 @@
 
                 <!-- Navigation Links -->
                 <ul class="flex flex-col items-center space-y-6">
-                        <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Home</a></li>
-                        <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
-                        <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">About Us</a></li>
-                        <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
-                        <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Profile</a></li>
+                        <li><a href="/HOMElandingpage_customer" id="home-link" class="text-white text-2xl hover:text-[#028ABE]">Home</a></li>
+                        <li><a href="/RESERVATIONreservation-page" class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
+                        <li><a href="/ABOUTUSpage" class="text-white text-2xl hover:text-[#028ABE]">About Us</a></li>
+                        <li><a href="/SHELFpage" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
+                        <li><a href="/PROFILEpage" class="text-white text-2xl hover:text-[#028ABE]">Profile</a></li>
                         <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Log Out</a></li>
                 </ul>
         </div>
@@ -85,6 +85,56 @@
                 </h1>
         </section>
 
+
+        <!-- SEARCH BAR -->
+        <div class=" mx-auto bg-[#D9D9D9] p-8 rounded-lg shadow-md flex items-center justify-center space-x-3">
+                <!-- Dropdown -->
+                <select class="p-2 border bg-[#E4ECFF] border-black-400 rounded-lg text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="" disabled selected>Keyword</option>
+                        <option value="title">Title</option>
+                        <option value="author">Author</option>
+                        <option value="category">Category</option>
+                </select>
+
+                <!-- Search Icon and Input -->
+                <div class="relative flex items-center w-1/2">
+                        <i class="fas fa-search absolute left-3 top-3 w-7 h-7 text-gray-400"></i>
+                        <!-- Input Field -->
+                        <input 
+                        type="text" 
+                        placeholder="Search here..." 
+                        class="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-lg text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                </div>
+
+                <!-- Search Button -->
+                <button class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
+                        Search
+                </button>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="mx-auto bg-[#D9D9D9] p-10 rounded-lg shadow-md mx-12">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                        <!-- Category Cards-->
+                        <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300">
+                                <a href="/Hspecific_category" class="block">
+                                        <img 
+                                        src="https://via.placeholder.com/300x200" 
+                                        alt="[categoty img]" 
+                                        class="w-full h-45 object-cover rounded-t-lg"
+                                        >
+                                        <div class="p-1 text-center font-semibold">[categoty name]</div>
+                                </a>
+                        </div>
+                </div>
+        </div>
+
+
+
+
+
+        
          <!-- Footer -->
         <footer class="flex flex-col md:flex-row justify-between items-start md:items-center px-8 md:px-16 lg:px-60 py-8 bg-[#011b33] text-white text-sm space-y-6 md:space-y-0">
                 <!-- Left Section: Logo and Contact Information -->
@@ -104,11 +154,6 @@
                         <p>All rights reserved.</p>
                 </div>
         </footer>
-
-
-
-
-
 
 
         <script>
@@ -147,6 +192,13 @@
                 closeMenuButton.addEventListener('click', function () {
                 mobileMenu.classList.add('hidden');
                 });
+
+
+                // Check if the current page is 'landingpage_customer'
+                if (window.location.pathname === '/HOMElandingpage_custome') {
+                        // Add the selected class to the Home link
+                        document.getElementById('home-link').classList.add('text-[#028ABE]');
+                }
         </script>
 
 </body>

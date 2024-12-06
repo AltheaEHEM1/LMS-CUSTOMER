@@ -81,7 +81,7 @@
                         </div>
                         <!-- "Need an account?"  -->
                         <div class="text-left text-white mt-auto"> 
-                            Need an account? <a href="#" class="text-blue-300 underline hover:text-blue-500">Sign up</a>
+                            Need an account? <a href="signup" class="text-blue-300 underline hover:text-blue-500">Sign up</a>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
             }
 
             // If validation passes, navigate to the landing page
-            window.location.href = '/landingpage_customer'; // Navigate to the new page
+            window.location.href = '/HOMElandingpage_customer'; // Navigate to the new page
         });
 
         // Toggle password visibility
