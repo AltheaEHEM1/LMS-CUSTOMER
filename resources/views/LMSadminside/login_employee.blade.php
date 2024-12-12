@@ -77,31 +77,31 @@
         const togglePassword = document.getElementById('togglePassword');
         const passwordField = document.getElementById('password');
 
-        // Set the default state of the password field to hidden
-        passwordField.type = 'password';
+        // Ensure password is hidden by default
+        passwordInput.type = 'password';
 
-        // Set the default state of the icon to fa-eye-slash (hidden)
-        const icon = togglePassword.querySelector('i');
-        icon.classList.remove('fa-eye');
-        icon.classList.add('fa-eye-slash');
+        // Ensure the eye icon is set to 'open eye' by default
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
 
-        // Toggle password visibility
+        // Toggle password visibility logic
         togglePassword.addEventListener('click', function () {
-        // Toggle the type attribute of the password field
-        const type = passwordField.type === 'password' ? 'text' : 'password';
-        passwordField.type = type;
+            // Check if the password is currently hidden
+            const isPasswordHidden = passwordInput.type === 'password';
+            passwordInput.type = isPasswordHidden ? 'text' : 'password';
 
-        // Toggle the eye icon
-        if (passwordField.type === 'password') {
-            // When password is hidden, set icon to fa-eye-slash
-            icon.classList.remove('fa-eye');
-            icon.classList.add('fa-eye-slash');
-        } else {
-            // When password is visible, set icon to fa-eye
-            icon.classList.remove('fa-eye-slash');
-            icon.classList.add('fa-eye');
-        }
+            // Update the eye icon
+            if (isPasswordHidden) {
+                // When password becomes visible, show the closed eye icon
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                // When password is hidden, show the open eye icon
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
         });
+
 
 </script>
 

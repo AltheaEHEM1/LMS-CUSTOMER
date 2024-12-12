@@ -77,58 +77,45 @@
         </div>
 
 
-          <!-- Content Section -->
-  <main class="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-6">
-    <div class="flex gap-6">
-      <!-- Book Details -->
-      <div>
-        <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="rounded shadow">
-        <h2 class="text-xl font-bold mt-4">Noli Me Tangere</h2>
-        <p class="text-gray-600">Rizal, Jose P.</p>
-      </div>
+       
+        <main class="container mx-auto flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8 p-6">
+            <!-- Book Image -->
+            <div class="flex-shrink-0">
+                <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="w-48 h-auto rounded-lg shadow-md">
+            </div>
 
-      <!-- Book Information -->
-      <div class="flex-grow">
-        <h3 class="text-lg font-bold">Information</h3>
-        <div class="grid grid-cols-2 gap-4 mt-4">
-          <p><span class="font-bold">ISBN:</span> 9710807528</p>
-          <p><span class="font-bold">Publisher:</span> Mandaluyong City: National Book Store</p>
-          <p><span class="font-bold">Item Type:</span> Book</p>
-          <p><span class="font-bold">Edition:</span> Fifth Edition</p>
-          <p><span class="font-bold">Description:</span> xxii, 381 pages, 1 unnumbered leaf of plate</p>
-          <p><span class="font-bold">Loan Period:</span> 3 days</p>
-        </div>
+            <!-- Book Information -->
+            <div class="flex-grow mr-5">
+                <h1 class="text-3xl font-semibold mb-4">Noli Me Tangere</h1>
+                <div class="space-y-2 text-gray-700">
+                    <p><span class="font-semibold">Type:</span> Book</p>
+                    <p><span class="font-semibold">Authors:</span> Jose P. Rizal</p>
+                    <p><span class="font-semibold">ISBN 10:</span> 9710807528</p>
+                    <p><span class="font-semibold">ISBN 13:</span> 1234567891012</p>
+                    <p><span class="font-semibold">Category:</span> Unknown</p>
+                    <p><span class="font-semibold">Publication Year:</span> 1961</p>
+                    <p><span class="font-semibold">Publisher:</span> Signet Classic</p>
+                    <p><span class="font-semibold">Pages:</span> 328</p>
+                    <p>
+                        <span class="font-semibold">Tags:</span>
+                        Classics, Political, Psychological, Satire, Literary, Dystopian, Censorship, 100 Books to Read in a Lifetime, Customer’s Favorite
+                    </p>
+                    <p><span class="font-semibold">Stock:</span> 4</p>
+                </div>
+            </div>
 
-        <!-- Borrower's Information -->
-        <div class="border p-4 rounded-lg mt-6">
-          <h4 class="font-bold">Borrower's Information</h4>
-          <p><span class="font-bold">Member ID:</span> 12345678910</p>
-          <p><span class="font-bold">Name:</span> Althea Amor J. Asis</p>
-          <p><span class="font-bold">Phone no.:</span> +639123456789</p>
-          <p><span class="font-bold">Email Address:</span> altheaamorjasis@gmail.com</p>
-        </div>
+            <!-- Reserve Button & Status -->
+            <div class="flex flex-col space-y-4 ml-5 mt-8 lg:mt-0 lg:ml-auto">
+                <a href="/Hreservationdetails" class="inline-block">
+                    <button class="bg-blue-900 text-white py-2 px-6 rounded-md hover:bg-blue-700">
+                        Reserve
+                    </button>
+                </a>
+                <p class="text-gray-700"><span class="font-semibold">Status:</span> Available</p>
+            </div>
+        </main>
 
-        <!-- Borrowing Details -->
-        <div class="mt-6">
-          <h4 class="font-bold">Borrowing Details</h4>
-          <div class="grid grid-cols-2 gap-4 mt-2">
-            <p><span class="font-bold">Book Stock:</span> 4</p>
-            <p><span class="font-bold">Status:</span> In Library</p>
-          </div>
-          <div class="flex items-center mt-4">
-            <label for="date" class="font-bold mr-2">Date Borrowed:</label>
-            <input type="date" id="date" class="border rounded p-2">
-          </div>
-          <p class="mt-4"><span class="font-bold">Due Date:</span> after 3 days</p>
-        </div>
 
-        <!-- Reserve Button -->
-        <button class="bg-blue-900 text-white px-4 py-2 rounded mt-6 hover:bg-blue-700">
-          Reserve
-        </button>
-      </div>
-    </div>
-  </main>
 
 
 

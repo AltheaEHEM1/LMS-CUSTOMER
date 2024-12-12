@@ -22,7 +22,7 @@
     </style>
 </head>
 
-<body class="bg-[#E4ECFF]">
+<body>
         <nav class="flex items-center justify-between px-8 py-4 bg-[#011b33] sticky top-0 z-50">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
@@ -67,7 +67,7 @@
 
                 <!-- Navigation Links -->
                 <ul class="flex flex-col items-center space-y-6">
-                        <li><a href="/HOMElandingpage_customer" class="text-white text-2xl hover:text-[#028ABE]">Home</a></li>
+                        <li><a href="/HOMElandingpage_customer" id="home-link" class="text-white text-2xl hover:text-[#028ABE]">Home</a></li>
                         <li><a href="/RESERVATIONreservation-page" class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
                         <li><a href="/ABOUTUSpage" class="text-white text-2xl hover:text-[#028ABE]">About Us</a></li>
                         <li><a href="/SHELFpage" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
@@ -77,61 +77,64 @@
         </div>
 
 
-          <!-- Content Section -->
-  <main class="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-6">
-    <div class="flex gap-6">
-      <!-- Book Details -->
-      <div>
-        <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="rounded shadow">
-        <h2 class="text-xl font-bold mt-4">Noli Me Tangere</h2>
-        <p class="text-gray-600">Rizal, Jose P.</p>
-      </div>
+        <section class="relative min-h-screen">
+                <img src="./images/customerbg.png" class="absolute inset-0 w-full h-full object-cover" alt="background">
 
-      <!-- Book Information -->
-      <div class="flex-grow">
-        <h3 class="text-lg font-bold">Information</h3>
-        <div class="grid grid-cols-2 gap-4 mt-4">
-          <p><span class="font-bold">ISBN:</span> 9710807528</p>
-          <p><span class="font-bold">Publisher:</span> Mandaluyong City: National Book Store</p>
-          <p><span class="font-bold">Item Type:</span> Book</p>
-          <p><span class="font-bold">Edition:</span> Fifth Edition</p>
-          <p><span class="font-bold">Description:</span> xxii, 381 pages, 1 unnumbered leaf of plate</p>
-          <p><span class="font-bold">Loan Period:</span> 3 days</p>
+                <h1 class="text-6xl font-bold absolute left-20 translate-y-[220px] text-[#011B33] drop-shadow-[4px_4px_10px_rgba(0,0,0,0.5)]">
+                        Discover your next <br> great read
+                </h1>
+        </section>
+
+
+        <!-- SEARCH BAR -->
+        <div class=" mx-auto bg-[#D9D9D9] p-8 rounded-lg shadow-md flex items-center justify-center space-x-3">
+                <!-- Dropdown -->
+                <select class="p-2 border bg-[#E4ECFF] border-black-400 rounded-lg text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="" disabled selected>Keyword</option>
+                        <option value="title">Title</option>
+                        <option value="author">Author</option>
+                        <option value="category">Category</option>
+                </select>
+
+                <!-- Search Icon and Input -->
+                <div class="relative flex items-center w-1/2">
+                        <i class="fas fa-search absolute left-3 top-3 w-7 h-7 text-gray-400"></i>
+                        <!-- Input Field -->
+                        <input 
+                        type="text" 
+                        placeholder="Search here..." 
+                        class="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-lg text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                </div>
+
+                <!-- Search Button -->
+                <button class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
+                        Search
+                </button>
         </div>
 
-        <!-- Borrower's Information -->
-        <div class="border p-4 rounded-lg mt-6">
-          <h4 class="font-bold">Borrower's Information</h4>
-          <p><span class="font-bold">Member ID:</span> 12345678910</p>
-          <p><span class="font-bold">Name:</span> Althea Amor J. Asis</p>
-          <p><span class="font-bold">Phone no.:</span> +639123456789</p>
-          <p><span class="font-bold">Email Address:</span> altheaamorjasis@gmail.com</p>
+        <!-- Categories Section -->
+        <div class="mx-auto bg-[#D9D9D9] p-10 rounded-lg shadow-md mx-12">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                        <!-- Category Cards-->
+                        <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300">
+                                <a href="/Hspecific_category" class="block">
+                                        <img 
+                                        src="https://via.placeholder.com/300x200" 
+                                        alt="[categoty img]" 
+                                        class="w-full h-45 object-cover rounded-t-lg"
+                                        >
+                                        <div class="p-1 text-center font-semibold">[categoty name]</div>
+                                </a>
+                        </div>
+                </div>
         </div>
 
-        <!-- Borrowing Details -->
-        <div class="mt-6">
-          <h4 class="font-bold">Borrowing Details</h4>
-          <div class="grid grid-cols-2 gap-4 mt-2">
-            <p><span class="font-bold">Book Stock:</span> 4</p>
-            <p><span class="font-bold">Status:</span> In Library</p>
-          </div>
-          <div class="flex items-center mt-4">
-            <label for="date" class="font-bold mr-2">Date Borrowed:</label>
-            <input type="date" id="date" class="border rounded p-2">
-          </div>
-          <p class="mt-4"><span class="font-bold">Due Date:</span> after 3 days</p>
-        </div>
-
-        <!-- Reserve Button -->
-        <button class="bg-blue-900 text-white px-4 py-2 rounded mt-6 hover:bg-blue-700">
-          Reserve
-        </button>
-      </div>
-    </div>
-  </main>
 
 
 
+
+        
          <!-- Footer -->
         <footer class="flex flex-col md:flex-row justify-between items-start md:items-center px-8 md:px-16 lg:px-60 py-8 bg-[#011b33] text-white text-sm space-y-6 md:space-y-0">
                 <!-- Left Section: Logo and Contact Information -->
@@ -189,6 +192,13 @@
                 closeMenuButton.addEventListener('click', function () {
                 mobileMenu.classList.add('hidden');
                 });
+
+
+                // Check if the current page is 'landingpage_customer'
+                if (window.location.pathname === '/HOMElandingpage_custome') {
+                        // Add the selected class to the Home link
+                        document.getElementById('home-link').classList.add('text-[#028ABE]');
+                }
         </script>
 
 </body>

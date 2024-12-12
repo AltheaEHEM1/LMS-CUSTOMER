@@ -22,7 +22,7 @@
     </style>
 </head>
 
-<body class="bg-[#E4ECFF]">
+<body>
         <nav class="flex items-center justify-between px-8 py-4 bg-[#011b33] sticky top-0 z-50">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
@@ -31,9 +31,9 @@
 
                 <!-- Centered Navigation Links -->
                 <ul class="flex space-x-12 hidden md:flex">
-                        <li><a href="/HOMElandingpage_customer" class="text-[#028ABE] flex items-center font-bold hover:text-[#028ABE]"><i class="fa fa-home mr-2"></i> Home</a></li>
+                        <li><a href="/HOMElandingpage_customer" class="text-white hover:text-[#028ABE] flex items-center" ><i class="fa fa-home mr-2"></i> Home</a></li>
                         <li><a href="/RESERVATIONreservation-page" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
-                        <li><a href="/ABOUTUSpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
+                        <li><a href="/ABOUTUSpage" class="text-[#028ABE] flex items-center font-bold hover:text-[#028ABE]"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
                 </ul>
 
                 <!-- Right-aligned Shelf and My Account --->
@@ -68,8 +68,8 @@
                 <!-- Navigation Links -->
                 <ul class="flex flex-col items-center space-y-6">
                         <li><a href="/HOMElandingpage_customer" class="text-white text-2xl hover:text-[#028ABE]">Home</a></li>
-                        <li><a href="/RESERVATIONreservation-page" class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
-                        <li><a href="/ABOUTUSpage" class="text-white text-2xl hover:text-[#028ABE]">About Us</a></li>
+                        <li><a href="/RESERVATIONreservation-page"  class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
+                        <li><a href="/ABOUTUSpage" id="aboutus" class="text-white text-2xl hover:text-[#028ABE]">About Us</a></li>
                         <li><a href="/SHELFpage" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
                         <li><a href="/PROFILEpage" class="text-white text-2xl hover:text-[#028ABE]">Profile</a></li>
                         <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Log Out</a></li>
@@ -77,80 +77,69 @@
         </div>
 
 
-          <!-- Content Section -->
-  <main class="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-6">
-    <div class="flex gap-6">
-      <!-- Book Details -->
-      <div>
-        <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="rounded shadow">
-        <h2 class="text-xl font-bold mt-4">Noli Me Tangere</h2>
-        <p class="text-gray-600">Rizal, Jose P.</p>
-      </div>
+        <div class="bg-gray-50 py-5">
+                <div class="text-center mb-10">
+                        <h1 class="text-3xl font-bold text-gray-800">Meet our team</h1>
+                        <p class="text-gray-500 mt-2">Inspiring change, one step at a time.</p>
+                </div>
 
-      <!-- Book Information -->
-      <div class="flex-grow">
-        <h3 class="text-lg font-bold">Information</h3>
-        <div class="grid grid-cols-2 gap-4 mt-4">
-          <p><span class="font-bold">ISBN:</span> 9710807528</p>
-          <p><span class="font-bold">Publisher:</span> Mandaluyong City: National Book Store</p>
-          <p><span class="font-bold">Item Type:</span> Book</p>
-          <p><span class="font-bold">Edition:</span> Fifth Edition</p>
-          <p><span class="font-bold">Description:</span> xxii, 381 pages, 1 unnumbered leaf of plate</p>
-          <p><span class="font-bold">Loan Period:</span> 3 days</p>
-        </div>
-
-        <!-- Borrower's Information -->
-        <div class="border p-4 rounded-lg mt-6">
-          <h4 class="font-bold">Borrower's Information</h4>
-          <p><span class="font-bold">Member ID:</span> 12345678910</p>
-          <p><span class="font-bold">Name:</span> Althea Amor J. Asis</p>
-          <p><span class="font-bold">Phone no.:</span> +639123456789</p>
-          <p><span class="font-bold">Email Address:</span> altheaamorjasis@gmail.com</p>
-        </div>
-
-        <!-- Borrowing Details -->
-        <div class="mt-6">
-          <h4 class="font-bold">Borrowing Details</h4>
-          <div class="grid grid-cols-2 gap-4 mt-2">
-            <p><span class="font-bold">Book Stock:</span> 4</p>
-            <p><span class="font-bold">Status:</span> In Library</p>
-          </div>
-          <div class="flex items-center mt-4">
-            <label for="date" class="font-bold mr-2">Date Borrowed:</label>
-            <input type="date" id="date" class="border rounded p-2">
-          </div>
-          <p class="mt-4"><span class="font-bold">Due Date:</span> after 3 days</p>
-        </div>
-
-        <!-- Reserve Button -->
-        <button class="bg-blue-900 text-white px-4 py-2 rounded mt-6 hover:bg-blue-700">
-          Reserve
-        </button>
-      </div>
-    </div>
-  </main>
-
-
-
-         <!-- Footer -->
-        <footer class="flex flex-col md:flex-row justify-between items-start md:items-center px-8 md:px-16 lg:px-60 py-8 bg-[#011b33] text-white text-sm space-y-6 md:space-y-0">
-                <!-- Left Section: Logo and Contact Information -->
-                <div class="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-9">
-                        <!-- Logo -->
-                        <img src="./images/logo_login_headerC.png" alt="library logo" class="w-32 md:w-[135px]">
-                        <!-- Contact Info -->
-                        <div class="text-center md:text-left">
-                        <p>Don Fabian St. Commonwealth</p>
-                        <p>altheacamorasis@gmail.com</p>
-                        <p>+639123456789</p>
+                <!-- Flex container to center the team member cards -->
+                <div class="flex justify-center gap-7">
+                        <!-- Team Member Card 1 -->
+                        <div class="bg-gray-100 rounded-lg shadow-md p-4 flex flex-col items-center w-80">
+                        <div class="bg-gray-300 w-full h-full rounded-t-lg">
+                                <img src="images/sample.jpg" alt="Team Member Photo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="mt-4 text-center">
+                                <h2 class="text-[#011B33] text-lg font-bold">Althea Amor J. Asis</h2>
+                                <p class="text-sm text-gray-500">Personal Manager</p>
                         </div>
                 </div>
 
-                <!-- Right Section: Rights Reserved -->
-                <div class="text-center md:text-right">
-                        <p>All rights reserved.</p>
+                <!-- Team Member Card 2 -->
+                <div class="bg-gray-100 rounded-lg shadow-md p-4 flex flex-col items-center w-80">
+                        <div class="bg-gray-300 w-full h-full rounded-t-lg">
+                                <img src="images/sample.jpg" alt="Team Member Photo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="mt-4 text-center">
+                                <h2 class="text-[#011B33] text-lg font-bold">Althea Amor J. Asis</h2>
+                                <p class="text-sm text-gray-500">Personal Manager</p>
+                        </div>
                 </div>
-        </footer>
+
+                <!-- Team Member Card 3 -->
+                <div class="bg-gray-100 rounded-lg shadow-md p-4 flex flex-col items-center w-80">
+                        <div class="bg-gray-300 w-full h-full rounded-t-lg">
+                                <img src="images/sample.jpg" alt="Team Member Photo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="mt-4 text-center">
+                                <h2 class="text-[#011B33] text-lg font-bold">Althea Amor J. Asis</h2>
+                                <p class="text-sm text-gray-500">Personal Manager</p>
+                        </div>
+                </div>
+
+                <!-- Team Member Card 4 -->
+                <div class="bg-gray-100 rounded-lg shadow-md p-4 flex flex-col items-center w-80">
+                        <div class="bg-gray-300 w-full h-full rounded-t-lg">
+                                <img src="images/sample.jpg" alt="Team Member Photo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="mt-4 text-center">
+                                <h2 class="text-[#011B33] text-lg font-bold">Althea Amor J. Asis</h2>
+                                <p class="text-sm text-gray-500">Personal Manager</p>
+                        </div>
+                        </div>
+                </div>
+
+                <div class="text-center mt-10">
+                        <p class="text-lg text-[#011B33]">
+                        Novella is your community's gateway to knowledge and inspiration. <br>
+                        As a public library, we offer a vast collection of books, journals, and digital resources. <br>
+                        Our dedicated staff is committed to providing exceptional service and fostering a love of learning.
+                        </p>
+                </div>
+        </div>
+
+
 
 
         <script>
@@ -189,6 +178,13 @@
                 closeMenuButton.addEventListener('click', function () {
                 mobileMenu.classList.add('hidden');
                 });
+
+
+                // Check if the current page is 'landingpage_customer'
+                if (window.location.pathname === '/ABOUTUSpage') {
+                        // Add the selected class to the Home link
+                        document.getElementById('aboutus-link').classList.add('text-[#028ABE]');
+                }
         </script>
 
 </body>

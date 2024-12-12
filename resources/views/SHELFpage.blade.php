@@ -22,7 +22,7 @@
     </style>
 </head>
 
-<body class="bg-[#E4ECFF]">
+<body>
         <nav class="flex items-center justify-between px-8 py-4 bg-[#011b33] sticky top-0 z-50">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
@@ -31,14 +31,14 @@
 
                 <!-- Centered Navigation Links -->
                 <ul class="flex space-x-12 hidden md:flex">
-                        <li><a href="/HOMElandingpage_customer" class="text-[#028ABE] flex items-center font-bold hover:text-[#028ABE]"><i class="fa fa-home mr-2"></i> Home</a></li>
+                        <li><a href="/HOMElandingpage_customer" class="text-white hover:text-[#028ABE] flex items-center" ><i class="fa fa-home mr-2"></i> Home</a></li>
                         <li><a href="/RESERVATIONreservation-page" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
                         <li><a href="/ABOUTUSpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
                 </ul>
 
                 <!-- Right-aligned Shelf and My Account --->
                 <div class="flex items-center space-x-12 hidden md:flex">
-                        <a href="/SHELFpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a>
+                        <a href="/SHELFpage" class="text-[#028ABE] flex items-center font-bold hover:text-[#028ABE]"><i class="fa fa-book mr-2"></i> Shelf</a>
                         <!-- My Account with Dropdown -->
                         <div class="relative">
                                 <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>
@@ -68,70 +68,15 @@
                 <!-- Navigation Links -->
                 <ul class="flex flex-col items-center space-y-6">
                         <li><a href="/HOMElandingpage_customer" class="text-white text-2xl hover:text-[#028ABE]">Home</a></li>
-                        <li><a href="/RESERVATIONreservation-page" class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
+                        <li><a href="/RESERVATIONreservation-page"  class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
                         <li><a href="/ABOUTUSpage" class="text-white text-2xl hover:text-[#028ABE]">About Us</a></li>
-                        <li><a href="/SHELFpage" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
+                        <li><a href="/SHELFpage" id="shelf" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
                         <li><a href="/PROFILEpage" class="text-white text-2xl hover:text-[#028ABE]">Profile</a></li>
                         <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Log Out</a></li>
                 </ul>
         </div>
 
-
-          <!-- Content Section -->
-  <main class="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-6">
-    <div class="flex gap-6">
-      <!-- Book Details -->
-      <div>
-        <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="rounded shadow">
-        <h2 class="text-xl font-bold mt-4">Noli Me Tangere</h2>
-        <p class="text-gray-600">Rizal, Jose P.</p>
-      </div>
-
-      <!-- Book Information -->
-      <div class="flex-grow">
-        <h3 class="text-lg font-bold">Information</h3>
-        <div class="grid grid-cols-2 gap-4 mt-4">
-          <p><span class="font-bold">ISBN:</span> 9710807528</p>
-          <p><span class="font-bold">Publisher:</span> Mandaluyong City: National Book Store</p>
-          <p><span class="font-bold">Item Type:</span> Book</p>
-          <p><span class="font-bold">Edition:</span> Fifth Edition</p>
-          <p><span class="font-bold">Description:</span> xxii, 381 pages, 1 unnumbered leaf of plate</p>
-          <p><span class="font-bold">Loan Period:</span> 3 days</p>
-        </div>
-
-        <!-- Borrower's Information -->
-        <div class="border p-4 rounded-lg mt-6">
-          <h4 class="font-bold">Borrower's Information</h4>
-          <p><span class="font-bold">Member ID:</span> 12345678910</p>
-          <p><span class="font-bold">Name:</span> Althea Amor J. Asis</p>
-          <p><span class="font-bold">Phone no.:</span> +639123456789</p>
-          <p><span class="font-bold">Email Address:</span> altheaamorjasis@gmail.com</p>
-        </div>
-
-        <!-- Borrowing Details -->
-        <div class="mt-6">
-          <h4 class="font-bold">Borrowing Details</h4>
-          <div class="grid grid-cols-2 gap-4 mt-2">
-            <p><span class="font-bold">Book Stock:</span> 4</p>
-            <p><span class="font-bold">Status:</span> In Library</p>
-          </div>
-          <div class="flex items-center mt-4">
-            <label for="date" class="font-bold mr-2">Date Borrowed:</label>
-            <input type="date" id="date" class="border rounded p-2">
-          </div>
-          <p class="mt-4"><span class="font-bold">Due Date:</span> after 3 days</p>
-        </div>
-
-        <!-- Reserve Button -->
-        <button class="bg-blue-900 text-white px-4 py-2 rounded mt-6 hover:bg-blue-700">
-          Reserve
-        </button>
-      </div>
-    </div>
-  </main>
-
-
-
+        
          <!-- Footer -->
         <footer class="flex flex-col md:flex-row justify-between items-start md:items-center px-8 md:px-16 lg:px-60 py-8 bg-[#011b33] text-white text-sm space-y-6 md:space-y-0">
                 <!-- Left Section: Logo and Contact Information -->
@@ -189,6 +134,13 @@
                 closeMenuButton.addEventListener('click', function () {
                 mobileMenu.classList.add('hidden');
                 });
+
+
+                // Check if the current page is 'landingpage_customer'
+                if (window.location.pathname === '/SHELFpage') {
+                        // Add the selected class to the Home link
+                        document.getElementById('shelf-link').classList.add('text-[#028ABE]');
+                }
         </script>
 
 </body>

@@ -31,7 +31,7 @@
 
                 <!-- Centered Navigation Links -->
                 <ul class="flex space-x-12 hidden md:flex">
-                        <li><a href="/HOMElandingpage_customer" class="text-[#028ABE] flex items-center font-bold hover:text-[#028ABE]"><i class="fa fa-home mr-2"></i> Home</a></li>
+                        <li><a href="/HOMElandingpage_customer" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-home mr-2"></i> Home</a></li>
                         <li><a href="/RESERVATIONreservation-page" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
                         <li><a href="/ABOUTUSpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
                 </ul>
@@ -77,58 +77,56 @@
         </div>
 
 
-          <!-- Content Section -->
-  <main class="container mx-auto p-6 bg-white rounded-lg shadow-lg mt-6">
-    <div class="flex gap-6">
-      <!-- Book Details -->
-      <div>
-        <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="rounded shadow">
-        <h2 class="text-xl font-bold mt-4">Noli Me Tangere</h2>
-        <p class="text-gray-600">Rizal, Jose P.</p>
-      </div>
+         <!-- BOOKS -->
+        <div class="bg-[#E4ECFF] min-h-screen p-8">
+                <!-- Page Title -->
+                <h1 class="text-center text-2xl p-4 font-bold mb-4">[Category Name]</h1>
 
-      <!-- Book Information -->
-      <div class="flex-grow">
-        <h3 class="text-lg font-bold">Information</h3>
-        <div class="grid grid-cols-2 gap-4 mt-4">
-          <p><span class="font-bold">ISBN:</span> 9710807528</p>
-          <p><span class="font-bold">Publisher:</span> Mandaluyong City: National Book Store</p>
-          <p><span class="font-bold">Item Type:</span> Book</p>
-          <p><span class="font-bold">Edition:</span> Fifth Edition</p>
-          <p><span class="font-bold">Description:</span> xxii, 381 pages, 1 unnumbered leaf of plate</p>
-          <p><span class="font-bold">Loan Period:</span> 3 days</p>
+                <!-- Back Button -->
+                <div class="flex justify-start mb-5 ml-4 sm:ml-8 md:ml-16 lg:ml-60">
+                        <a href="/HOMElandingpage_customer" class="text-[#000] hover:text-[#028ABE] flex items-center">
+                                <i class="fas fa-arrow-left"></i>
+                                <span class="ml-2">Back</span>
+                        </a>
+                </div>
+
+                 <!-- BOOK LIST -->
+                <div class="flex justify-center">
+                        <div class="space-y-6 w-full max-w-4xl px-4">
+                                <!-- BOOK LIST -->
+                                <div class="flex justify-center px-4">
+                                        <div class="space-y-6 w-full max-w-4xl">
+                                                <!-- Single Book -->
+                                                <div class="flex sm:flex-row items-center bg-white shadow-md rounded-lg p-4 mx-auto hover:scale-105 transition-transform duration-300">
+                                                        <!-- Link for Book Image and Details -->
+                                                        <a href="/Hbookdetailswithreserve" class="flex flex-col sm:flex-row items-center flex-grow text-left">
+                                                        <!-- Book Image -->
+                                                        <img src="https://via.placeholder.com/100" alt="Noli Me Tangere" 
+                                                                class="w-24 h-32 rounded-lg sm:w-32 sm:h-40 object-cover">
+
+                                                        <!-- Book Details -->
+                                                        <div class="mt-4 sm:mt-0 sm:ml-4 flex-grow text-center sm:text-left">
+                                                                <p class="text-sm text-gray-500">Book</p>
+                                                                <h2 class="text-lg font-semibold text-gray-800">Noli Me Tangere</h2>
+                                                                <p class="text-gray-600">Rizal, Jose P.</p>
+                                                                <p class="text-gray-500">Mandaluyong, National Bookstore</p>
+                                                                <p class="text-gray-500">2021</p>
+                                                        </div>
+                                                        </a>
+
+                                                        <!-- Bookmark Button -->
+                                                        <div class="ml-4">
+                                                                <button class="flex items-center bg-black text-white px-4 py-2 rounded-md hover:bg-[#028ABE]">
+                                                                        <i class="fas fa-bookmark mr-2"></i> Bookmark
+                                                                </button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
         </div>
 
-        <!-- Borrower's Information -->
-        <div class="border p-4 rounded-lg mt-6">
-          <h4 class="font-bold">Borrower's Information</h4>
-          <p><span class="font-bold">Member ID:</span> 12345678910</p>
-          <p><span class="font-bold">Name:</span> Althea Amor J. Asis</p>
-          <p><span class="font-bold">Phone no.:</span> +639123456789</p>
-          <p><span class="font-bold">Email Address:</span> altheaamorjasis@gmail.com</p>
-        </div>
-
-        <!-- Borrowing Details -->
-        <div class="mt-6">
-          <h4 class="font-bold">Borrowing Details</h4>
-          <div class="grid grid-cols-2 gap-4 mt-2">
-            <p><span class="font-bold">Book Stock:</span> 4</p>
-            <p><span class="font-bold">Status:</span> In Library</p>
-          </div>
-          <div class="flex items-center mt-4">
-            <label for="date" class="font-bold mr-2">Date Borrowed:</label>
-            <input type="date" id="date" class="border rounded p-2">
-          </div>
-          <p class="mt-4"><span class="font-bold">Due Date:</span> after 3 days</p>
-        </div>
-
-        <!-- Reserve Button -->
-        <button class="bg-blue-900 text-white px-4 py-2 rounded mt-6 hover:bg-blue-700">
-          Reserve
-        </button>
-      </div>
-    </div>
-  </main>
 
 
 
