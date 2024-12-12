@@ -80,10 +80,10 @@
          <!-- BOOKS -->
         <div class="bg-[#E4ECFF] min-h-screen p-8">
                 <!-- Page Title -->
-                <h1 class="text-center text-2xl p-4 font-bold mb-4">[Category Name]</h1>
+                <h1 class="text-center text-2xl p-4 font-bold mb-">[Category Name]</h1>
 
                 <!-- Back Button -->
-                <div class="flex justify-start mb-5 ml-4 sm:ml-8 md:ml-16 lg:ml-60">
+                <div class="flex justify-start mb-7 ml-4 sm:ml-8 md:ml-16 lg:ml-60">
                         <a href="/HOMElandingpage_customer" class="text-[#000] hover:text-[#028ABE] flex items-center">
                                 <i class="fas fa-arrow-left"></i>
                                 <span class="ml-2">Back</span>
