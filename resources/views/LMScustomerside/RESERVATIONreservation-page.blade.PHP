@@ -33,6 +33,23 @@
                 <!-- Right-aligned Shelf and My Account --->
                 <div class="flex items-center space-x-12 hidden md:flex">
                         <a href="/SHELFpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a>
+                        
+                        <!-- Notification Icon -->
+                        <div class="relative">
+                                <i id="notificationIcon" class="fa fa-bell text-white text-xl hover:text-[#028ABE] cursor-pointer"></i>
+                                <!-- Notification Badge -->
+                                <span id="notificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+                                5
+                                </span>
+                                <!-- Notification Box -->
+                                <div id="notificationBox" class="absolute top-10 right-0 bg-white border border-gray-300 rounded-lg shadow-lg w-72 max-h-96 overflow-y-auto hidden z-50">
+                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">New message received</div>
+                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Your book is ready for pickup</div>
+                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Reminder: Return due tomorrow</div>
+                                <div class="p-4 text-center text-gray-500">No more notifications</div>
+                                </div>
+                        </div>
+
                         <!-- My Account with Dropdown -->
                         <div class="relative">
                                 <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>

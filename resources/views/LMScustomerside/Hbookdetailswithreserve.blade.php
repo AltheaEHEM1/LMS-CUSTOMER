@@ -31,7 +31,7 @@
 
                 <!-- Centered Navigation Links -->
                 <ul class="flex space-x-12 hidden md:flex">
-                        <li><a href="/HOMElandingpage_customer" class="text-[#028ABE] flex items-center font-bold hover:text-[#028ABE]"><i class="fa fa-home mr-2"></i> Home</a></li>
+                        <li><a href="/HOMElandingpage_customer" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-home mr-2"></i> Home</a></li>
                         <li><a href="/RESERVATIONreservation-page" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
                         <li><a href="/ABOUTUSpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
                 </ul>
@@ -39,6 +39,32 @@
                 <!-- Right-aligned Shelf and My Account --->
                 <div class="flex items-center space-x-12 hidden md:flex">
                         <a href="/SHELFpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a>
+                        
+                        <!-- Notification Icon -->
+                        <div class="relative">
+                                <i id="notificationIcon" class="fa fa-bell text-white text-xl hover:text-[#028ABE] cursor-pointer"></i>
+                                <!-- Notification Badge -->
+                                <span id="notificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+                                5
+                                </span>
+                                <!-- Notification Box -->
+                                <div id="notificationBox" class="absolute top-10 right-0 bg-white border border-gray-300 rounded-lg shadow-lg w-72 max-h-96 overflow-y-auto hidden z-50">
+                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">New message received</div>
+                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Your book is ready for pickup</div>
+                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Reminder: Return due tomorrow</div>
+                                <div class="p-4 text-center text-gray-500">No more notifications</div>
+                                </div>
+                        </div>
+
+                        <!-- My Account with Dropdown -->
+                        <div class="relative">
+                                <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>
+                                <ul id="dropdownMenu" class="absolute hidden bg-[#011b33] text-white rounded-md shadow-lg mt-2 py-2 w-48">
+                                        <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"><i class="fa fa-user-circle mr-2"></i> Profile</a></li>
+                                        <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"> <i class="fa fa-sign-out-alt mr-2"></i> Log Out</a></li>
+                                </ul>
+                        </div>
+                        
                         <!-- My Account with Dropdown -->
                         <div class="relative">
                                 <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>
@@ -49,10 +75,24 @@
                         </div>
                 </div>
 
-                <!-- Hamburger Menu Button (for mobile view) -->
-                <div class="md:hidden">
+                 <!-- Hamburger Menu Button and Icons (for mobile view) -->
+                 <div class="flex items-center md:hidden space-x-4">
+                        <!-- Notification Icon -->
+                        <div class="relative">
+                                <i id="mobileNotificationIcon" class="fa fa-bell text-white text-xl hover:text-[#028ABE] cursor-pointer"></i>
+                                <span id="mobileNotificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+                                5
+                                </span>
+                                <div id="mobileNotificationBox" class="absolute top-10 right-0 bg-white border border-gray-300 rounded-lg shadow-lg w-64 max-h-96 overflow-y-auto hidden z-50">
+                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">New message received</div>
+                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Your book is ready for pickup</div>
+                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Reminder: Return due tomorrow</div>
+                                <div class="p-4 text-center text-gray-500">No more notifications</div>
+                                </div>
+                        </div>
+
                         <button id="hamburgerMenu" class="text-white text-3xl">
-                        <i class="fas fa-bars"></i>
+                                <i class="fas fa-bars"></i>
                         </button>
                 </div>
         </nav>
@@ -76,49 +116,88 @@
                 </ul>
         </div>
 
-
-       
-        <main class="container mx-auto flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8 p-6">
-            <!-- Book Image -->
-            <div class="flex-shrink-0">
-                <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="w-48 h-auto rounded-lg shadow-md">
-            </div>
-
-            <!-- Book Information -->
-            <div class="flex-grow mr-5">
-                <h1 class="text-3xl font-semibold mb-4">Noli Me Tangere</h1>
-                <div class="space-y-2 text-gray-700">
-                    <p><span class="font-semibold">Type:</span> Book</p>
-                    <p><span class="font-semibold">Authors:</span> Jose P. Rizal</p>
-                    <p><span class="font-semibold">ISBN 10:</span> 9710807528</p>
-                    <p><span class="font-semibold">ISBN 13:</span> 1234567891012</p>
-                    <p><span class="font-semibold">Category:</span> Unknown</p>
-                    <p><span class="font-semibold">Publication Year:</span> 1961</p>
-                    <p><span class="font-semibold">Publisher:</span> Signet Classic</p>
-                    <p><span class="font-semibold">Pages:</span> 328</p>
-                    <p>
-                        <span class="font-semibold">Tags:</span>
-                        Classics, Political, Psychological, Satire, Literary, Dystopian, Censorship, 100 Books to Read in a Lifetime, Customer’s Favorite
-                    </p>
-                    <p><span class="font-semibold">Stock:</span> 4</p>
-                </div>
-            </div>
-
-            <!-- Reserve Button & Status -->
-            <div class="flex flex-col space-y-4 ml-5 mt-8 lg:mt-0 lg:ml-auto">
-                <a href="/Hreservationdetails" class="inline-block">
-                    <button class="bg-blue-900 text-white py-2 px-6 rounded-md hover:bg-blue-700">
-                        Reserve
-                    </button>
+        <main class="min-h-screen p-8 mb-0">
+            <!-- Back Button -->
+            <div class="flex justify-start mb-4 ml-4 sm:ml-8 md:ml-16 lg:ml-60 mt-16">
+                <a href="/Hspecific_category" class="text-[#000] hover:text-[#028ABE] flex items-center">
+                    <i class="fas fa-arrow-left"></i>
+                    <span class="ml-2">Back</span>
                 </a>
-                <p class="text-gray-700"><span class="font-semibold">Status:</span> Available</p>
+            </div>
+
+            <!-- Book Details Section -->
+            <div class="flex flex-col lg:flex-row lg:space-x-8 space-y-8 lg:space-y-0 mt-5 ml-4 sm:ml-16 md:ml-32 lg:ml-64 mr-4 sm:mr-8 md:mr-16 lg:mr-20">
+                <!-- Book Image -->
+                <div class="flex-shrink-0 w-40 mx-auto lg:w-48 lg:mx-0">
+                    <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="w-full h-72 rounded-lg shadow-md">
+                </div>
+
+                <!-- Book Information and Reserve Button -->
+                <div class="flex-grow flex flex-col lg:flex-row items-start space-y-4 lg:space-y-0 lg:space-x-6">
+                    <div class="space-y-2 text-gray-700">
+                        <div>
+                            <h1 class="text-2xl font-bold">Noli Me Tangere</h1>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">Type:</p>
+                            <p class="inline">Book</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">Authors:</p>
+                            <p class="inline">Jose P. Rizal</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">ISBN 10:</p>
+                            <p class="inline">9710807528</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">ISBN 13:</p>
+                            <p class="inline">1234567891012</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">Category:</p>
+                            <p class="inline">Unknown</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">Publication Year:</p>
+                            <p class="inline">1961</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">Publisher:</p>
+                            <p class="inline">Signet Classic</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">Pages:</p>
+                            <p class="inline">328</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">Tags:</p>
+                            <p class="inline">Classics, Political, Psychological, Satire, Literary, Dystopian, Censorship, <br>100 Books to Read in a Lifetime, Customer’s Favorite</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold inline mr-2">Stock:</p> 
+                            <p class="inline">4</p>
+                        </div>
+                    </div>
+
+                    <!-- Reserve Button and Status -->
+                    <div class="flex flex-col space-y-4">
+                        <a href="/Hreservationdetails">
+                        <button class="bg-[#028ABE] text-white py-2 px-4 rounded-lg w-full hover:bg-[#026c94] transition duration-200">
+                            Reserve
+                        </button>
+                        </a>
+                        <div class="text-center">
+                            <p class="text-lg font-semibold">Status:</p>
+                            <p class="text-green-600">Available</p> 
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
 
 
-
-
-
+    
          <!-- Footer -->
         <footer class="flex flex-col md:flex-row justify-between items-start md:items-center px-8 md:px-16 lg:px-60 py-8 bg-[#011b33] text-white text-sm space-y-6 md:space-y-0">
                 <!-- Left Section: Logo and Contact Information -->

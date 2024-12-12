@@ -57,9 +57,9 @@
                     <li><a href="/EMPLOYEE" id="employee" class="sidebar-item flex items-center py-3 px-6 hover:bg-[#028ABE] hover:text-white rounded-lg transition-all duration-200 ease-in-out">
                         <i class="fas fa-user-tie mr-4"></i> Employee</a></li>
                     <li><a href="LIBRARIAN" id="librarian" class="sidebar-item flex items-center py-3 px-6 hover:bg-[#028ABE] hover:text-white rounded-lg transition-all duration-200 ease-in-out">
-                        <i class="fas fa-user-cog mr-4"></i> Librarian</a></li>
+                        <i class="fas fa-calendar-check mr-4"></i> Reservations</a></li>
                     <li><a href="CATALOGER" id="cataloger" class="sidebar-item flex items-center py-3 px-6 hover:bg-[#028ABE] hover:text-white rounded-lg transition-all duration-200 ease-in-out">
-                        <i class="fas fa-book mr-4"></i> Cataloger</a></li>
+                        <i class="fas fa-book-open mr-4"></i> Catalog</a></li>
                     <li><a href="MEMBERS" id="members" class="sidebar-item flex items-center py-3 px-6 hover:bg-[#028ABE] hover:text-white rounded-lg transition-all duration-200 ease-in-out">
                         <i class="fas fa-users mr-4"></i> Members</a></li>
                     <li><a href="CIRCULATION" id="circulation" class="sidebar-item flex items-center py-3 px-6 hover:bg-[#028ABE] hover:text-white rounded-lg transition-all duration-200 ease-in-out">
@@ -71,7 +71,7 @@
                     <li><a href="OVERDUE_REPORTS" id="overdue_reports" class="sidebar-item flex items-center py-3 px-6 hover:bg-[#028ABE] hover:text-white rounded-lg transition-all duration-200 ease-in-out">
                         <i class="fas fa-clock mr-4"></i> Overdue Reports</a></li>
                     <li><a href="CATALOG" id="catalog" class="sidebar-item flex items-center py-3 px-6 hover:bg-[#028ABE] hover:text-white rounded-lg transition-all duration-200 ease-in-out">
-                        <i class="fas fa-folder-open mr-4"></i> Catalog</a></li>
+                        <i class="fas fa-folder-open mr-4"></i> Catalog Reports</a></li>
                     <li><a href="CATALOG_REPORTS" id="catalog_reports" class="sidebar-item flex items-center py-3 px-6 hover:bg-[#028ABE] hover:text-white rounded-lg transition-all duration-200 ease-in-out">
                         <i class="fas fa-chart-pie mr-4"></i> Catalog Reports</a></li>
                 </ul>

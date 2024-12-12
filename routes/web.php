@@ -136,6 +136,7 @@ Route::get('/PROFILEpage', function () {
         return view('PROFILEpage');
     });
 
+<<<<<<< HEAD
 Route::get('/ Hreservationdetails', function () {
         return view(' Hreservationdetails');
     });
@@ -151,5 +152,10 @@ Route::get('/HOMElandingpage_customer', function () {
      return view('HOMElandingpage_customer');
  })->name('HOMElandingpage_customer');
 
+=======
+// Route::get('/ Hreservationdetails', function () {
+//         return view(' Hreservationdetails');
+//     });
+>>>>>>> fb9046d (newbase)
 ///END// itong buong block sa taas i run / customer
 ////////////////////////////////////////////////////////////////////////////
