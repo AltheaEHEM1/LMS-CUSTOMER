@@ -57,13 +57,28 @@
                         </div>
 
                         <!-- My Account with Dropdown -->
+                        
                         <div class="relative">
-                                <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>
-                                <ul id="dropdownMenu" class="absolute hidden bg-[#011b33] text-white rounded-md shadow-lg mt-2 py-2 w-48">
-                                        <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"><i class="fa fa-user-circle mr-2"></i> Profile</a></li>
-                                        <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"> <i class="fa fa-sign-out-alt mr-2"></i> Log Out</a></li>
-                                </ul>
+                        <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center">
+                                <i class="fa fa-user mr-2"></i> My Account
+                        </button>
+                        <ul id="dropdownMenu" class="absolute hidden bg-[#011b33] text-white rounded-md shadow-lg mt-2 py-2 w-48">
+                                <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center">
+                                <i class="fa fa-user-circle mr-2"></i> Profile
+                                </a></li>
+
+                                <!-- Log Out Form -->
+                                <li>
+                                <form action="{{ route('logout') }}" method="POST" id="logoutForm">
+                                        @csrf
+                                        <button type="submit" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center">
+                                        <i class="fa fa-sign-out-alt mr-2"></i> Log Out
+                                        </button>
+                                </form>
+                                </li>
+                        </ul>
                         </div>
+
                 </div>
 
                 <!-- Hamburger Menu Button and Icons (for mobile view) -->
