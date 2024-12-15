@@ -16,12 +16,8 @@ use App\Http\Controllers\authController;
 //     return view('EMPLOYEE'); 
 // });
 
-// Route::get('/LIBRARIAN', function () {
-//     return view('LIBRARIAN'); 
-// });
-
-// Route::get('/CATALOGER', function () {
-//     return view('CATALOGER'); 
+// Route::get('/RESERVATION', function () {
+//     return view('RESERVATION'); 
 // });
 
 // Route::get('/MEMBERS', function () {
@@ -112,13 +108,13 @@ Route::get('/Hspecific_category', function () {
         return view('Hspecific_category');
     });
 
-// Route::get('/HOMElandingpage_customer', function () {
-//         return view('HOMElandingpage_customer')->name('HOMElandingpage_customer');
-//     });
+Route::get('/HOMElandingpage_customer', function () {
+        return view('HOMElandingpage_customer')->name('HOMElandingpage_customer');
+    });
 
-// Route::get('/RESERVATIONreservation-page', function () {
-//         return view('RESERVATIONreservation-page');
-//     });
+Route::get('/RESERVATIONreservation-page', function () {
+        return view('RESERVATIONreservation-page');
+    });
 
 Route::get('/Hbookdetailswithreserve', function () {
         return view('Hbookdetailswithreserve');

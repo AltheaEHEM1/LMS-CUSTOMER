@@ -3,7 +3,7 @@
 <section class="bg-gray-100 fixed ml-72 px-11 py-6 w-full top-20 left-0"> 
     <p class="text-sm text-gray-600">
         <i class="fas fa-home text-gray-800"></i>
-        Dashboard / Member
+        Dashboard / Reservation
     </p>
 </section>
 
