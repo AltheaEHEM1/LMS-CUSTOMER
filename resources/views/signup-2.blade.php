@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./images/tabicon.png">
+    <title>Novella Sign-Up</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <title>Novella</title>
 
 </head>
 <body class="bg-[#E4ECFF] font-poppins">
@@ -154,10 +152,10 @@
 
                 <!-- Submit Button -->
                 <div class="flex justify-end space-x-10 space-x-5"> 
-                    Step 1 link (to go back)
+                    <!-- Step 1 link (to go back) -->
                     <a href="part1" class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition text-center">Step 1</a>
             
-                    <!-- Submit Button to go to signup-3 -->
+                    <!-- Submit Button to go to homelandingpage -->
                     <button type="submit">Register</button>
                             
                 </div>
@@ -278,6 +276,11 @@
                 event.preventDefault();
             }
         });
+
+
+
+        
+
     </script>
 
 </body>

@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/tabicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,12 +47,6 @@
                     <p class="text-gray-500 font-medium text-xs text-center">Novella Account</p>
                 </div>
 
-                <div class="hidden lg:block lg:w-1/3 h-[2px] bg-gray-300"></div>
-                <div class="flex flex-col items-center space-y-1">
-                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 text-gray-500 text-sm">3</div>
-                    <p class="text-[#011B33] font-semibold text-xs">Third Step</p>
-                    <p class="text-gray-500 font-medium text-xs text-center">Account Information</p>
-                </div>
             </div>
 
             <p class="text-[#011B33] font-semibold text-lg lg:text-xl mb-6">Personal Information</p>
@@ -199,6 +192,7 @@
             });
             }
         });
+            
 
 
 
