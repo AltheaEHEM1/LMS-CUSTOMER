@@ -19,6 +19,21 @@
         section {
             overflow-x: hidden;  /* Prevent overflow for section if needed */
         }
+
+        /* Active navigation link styles */
+        .active {
+            font-weight: bold;
+            color: #028ABE !important; /* Change text color */
+        }
+
+        /* Hide scrollbar for notification dropdown */
+        #notificationBox, #mobileNotificationBox {
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none; /* For Internet Explorer and Edge */
+        }
+        #notificationBox::-webkit-scrollbar, #mobileNotificationBox::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Opera */
+        }
     </style>
 </head>
 
@@ -31,17 +46,17 @@
 
                 <!-- Centered Navigation Links -->
                 <ul class="flex space-x-12 hidden md:flex">
-                        <li><a href="/HOMElandingpage_customer" class="text-white hover:text-[#028ABE] flex items-center" ><i class="fa fa-home mr-2"></i> Home</a></li>
+                        <li><a href="/HOMElandingpage_customer" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-home mr-2"></i> Home</a></li>
                         <li><a href="/RESERVATIONreservation-page" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
                         <li><a href="/ABOUTUSpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
                 </ul>
 
                 <!-- Right-aligned Shelf and My Account --->
                 <div class="flex items-center space-x-12 hidden md:flex">
-                        <a href="/SHELFpage" class="text-[#028ABE] flex items-center font-bold hover:text-[#028ABE]"><i class="fa fa-book mr-2"></i> Shelf</a>
-                        
+                        <ul><a href="/SHELFpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a></ul>
+   
                          <!-- Notification Icon -->
-                         <div class="relative">
+                        <div class="relative">
                                 <i id="notificationIcon" class="fa fa-bell text-white text-xl hover:text-[#028ABE] cursor-pointer"></i>
                                 <!-- Notification Badge -->
                                 <span id="notificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
@@ -55,16 +70,30 @@
                                 <div class="p-4 text-center text-gray-500">No more notifications</div>
                                 </div>
                         </div>
-                        
-                        
+
                         <!-- My Account with Dropdown -->
+                        
                         <div class="relative">
-                                <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>
-                                <ul id="dropdownMenu" class="absolute hidden bg-[#011b33] text-white rounded-md shadow-lg mt-2 py-2 w-48">
-                                        <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"><i class="fa fa-user-circle mr-2"></i> Profile</a></li>
-                                        <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"> <i class="fa fa-sign-out-alt mr-2"></i> Log Out</a></li>
-                                </ul>
+                        <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center">
+                                <i class="fa fa-user mr-2"></i> My Account
+                        </button>
+                        <ul id="dropdownMenu" class="absolute hidden bg-[#011b33] text-white rounded-md shadow-lg mt-2 py-2 w-48">
+                                <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center">
+                                <i class="fa fa-user-circle mr-2"></i> Profile
+                                </a></li>
+
+                                <!-- Log Out Form -->
+                                <li>
+                                <form action="{{ route('logout') }}" method="POST" id="logoutForm">
+                                        @csrf
+                                        <button type="submit" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center">
+                                        <i class="fa fa-sign-out-alt mr-2"></i> Log Out
+                                        </button>
+                                </form>
+                                </li>
+                        </ul>
                         </div>
+
                 </div>
 
                 <!-- Hamburger Menu Button and Icons (for mobile view) -->
@@ -99,81 +128,55 @@
 
                 <!-- Navigation Links -->
                 <ul class="flex flex-col items-center space-y-6">
-                        <li><a href="/HOMElandingpage_customer" class="text-white text-2xl hover:text-[#028ABE]">Home</a></li>
-                        <li><a href="/RESERVATIONreservation-page"  class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
+                        <li><a href="/HOMElandingpage_customer" id="home-link" class="text-white text-2xl hover:text-[#028ABE]">Home</a></li>
+                        <li><a href="/RESERVATIONreservation-page" class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
                         <li><a href="/ABOUTUSpage" class="text-white text-2xl hover:text-[#028ABE]">About Us</a></li>
-                        <li><a href="/SHELFpage" id="shelf" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
+                        <li><a href="/SHELFpage" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
                         <li><a href="/PROFILEpage" class="text-white text-2xl hover:text-[#028ABE]">Profile</a></li>
                         <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Log Out</a></li>
                 </ul>
         </div>
 
-        
-         <!-- Footer -->
-        <footer class="flex flex-col md:flex-row justify-between items-start md:items-center px-8 md:px-16 lg:px-60 py-8 bg-[#011b33] text-white text-sm space-y-6 md:space-y-0">
-                <!-- Left Section: Logo and Contact Information -->
-                <div class="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-9">
-                        <!-- Logo -->
-                        <img src="./images/logo_login_headerC.png" alt="library logo" class="w-32 md:w-[135px]">
-                        <!-- Contact Info -->
-                        <div class="text-center md:text-left">
-                        <p>Don Fabian St. Commonwealth</p>
-                        <p>altheacamorasis@gmail.com</p>
-                        <p>+639123456789</p>
-                        </div>
-                </div>
-
-                <!-- Right Section: Rights Reserved -->
-                <div class="text-center md:text-right">
-                        <p>All rights reserved.</p>
-                </div>
-        </footer>
-
-
         <script>
-                // DROPDOWN START
-                // Select the toggle button, dropdown menu, and dropdown items
-                const dropdownToggle = document.getElementById('dropdownToggle');
-                const dropdownMenu = document.getElementById('dropdownMenu');
-                const dropdownItems = document.querySelectorAll('.dropdown-item');
+        // Highlight active navigation link
+        const currentUrl = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav ul a, #mobileMenu ul a');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentUrl) {
+                link.classList.add('active');
+            }
+        });
 
-                // Add click event listener to the toggle button
-                dropdownToggle.addEventListener('click', function () {
-                // Toggle the visibility of the dropdown menu
-                dropdownMenu.classList.toggle('hidden');
-                });
+        // Toggle notification dropdown
+        const notificationIcon = document.getElementById('notificationIcon');
+        const notificationBox = document.getElementById('notificationBox');
+        notificationIcon.addEventListener('click', () => {
+            notificationBox.classList.toggle('hidden');
+        });
 
-                // Add click event listener to each dropdown item
-                dropdownItems.forEach((item) => {
-                item.addEventListener('click', function () {
-                        // Close the dropdown menu when a dropdown item is clicked
-                        dropdownMenu.classList.add('hidden');
-                });
-                });
-                // DROPDOWN END
+        const mobileNotificationIcon = document.getElementById('mobileNotificationIcon');
+        const mobileNotificationBox = document.getElementById('mobileNotificationBox');
+        mobileNotificationIcon.addEventListener('click', () => {
+            mobileNotificationBox.classList.toggle('hidden');
+        });
 
-                // Get the hamburger button, mobile menu, and close button
-                const hamburgerMenu = document.getElementById('hamburgerMenu');
-                const mobileMenu = document.getElementById('mobileMenu');
-                const closeMenuButton = document.getElementById('closeMenu');
+        // Toggle My Account dropdown
+        const dropdownToggle = document.getElementById('dropdownToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        dropdownToggle.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
 
-                // Toggle mobile menu visibility when hamburger button is clicked
-                hamburgerMenu.addEventListener('click', function () {
-                mobileMenu.classList.toggle('hidden');
-                });
+        // Toggle mobile menu
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
 
-                // Close the mobile menu when the close button (X) is clicked
-                closeMenuButton.addEventListener('click', function () {
-                mobileMenu.classList.add('hidden');
-                });
+        hamburgerMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
 
-
-                // Check if the current page is 'landingpage_customer'
-                if (window.location.pathname === '/SHELFpage') {
-                        // Add the selected class to the Home link
-                        document.getElementById('shelf-link').classList.add('text-[#028ABE]');
-                }
-        </script>
-
-</body>
-</html>
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    </script>

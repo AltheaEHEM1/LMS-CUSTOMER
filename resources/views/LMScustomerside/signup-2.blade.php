@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novella Sign-Up</title>
+    <link rel="shortcut icon" href="./images/tabicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Novella</title>
 
 </head>
 <body class="bg-[#E4ECFF] font-poppins">
@@ -55,8 +57,24 @@
             <p class="text-[#011B33] font-semibold text-lg lg:text-xl mb-6">Library Information</p>
 
             <!-- Form -->
-            <form action="/signup-3" method="POST" class="space-y-6" id="signupForm" novalidate>
+            <form action="{{ route('register') }}" method="POST" class="space-y-6" id="signupForm">
                 @csrf
+                
+                <!-- Hidden fields for step 1 data -->
+                <input type="hidden" name="firstName" value="{{ $stepOneData['firstName'] ?? '' }}">
+                <input type="hidden" name="middleInitial" value="{{ $stepOneData['middleInitial'] ?? '' }}">
+                <input type="hidden" name="lastName" value="{{ $stepOneData['lastName'] ?? '' }}">
+                <input type="hidden" name="dobMonth" value="{{ $stepOneData['dobMonth'] ?? '' }}">
+                <input type="hidden" name="dobDay" value="{{ $stepOneData['dobDay'] ?? '' }}">
+                <input type="hidden" name="dobYear" value="{{ $stepOneData['dobYear'] ?? '' }}">
+                <input type="hidden" name="gender" value="{{ $stepOneData['gender'] ?? '' }}">
+                <input type="hidden" name="addressHouse" value="{{ $stepOneData['addressHouse'] ?? '' }}">
+                <input type="hidden" name="addressStreet" value="{{ $stepOneData['addressStreet'] ?? '' }}">
+                <input type="hidden" name="addressBarangay" value="{{ $stepOneData['addressBarangay'] ?? '' }}">
+                <input type="hidden" name="addressCity" value="{{ $stepOneData['addressCity'] ?? '' }}">
+                <input type="hidden" name="addressProvince" value="{{ $stepOneData['addressProvince'] ?? '' }}">
+                <input type="hidden" name="addressZip" value="{{ $stepOneData['addressZip'] ?? '' }}">
+
 
                 <div class="grid grid-row-4 lg:grid-row-4 gap-4">
                     <!-- Username -->
@@ -136,12 +154,11 @@
 
                 <!-- Submit Button -->
                 <div class="flex justify-end space-x-10 space-x-5"> 
-                    <!-- Step 1 link (to go back) -->
-                    <a href="/" class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition text-center">Step 1</a>
+                    Step 1 link (to go back)
+                    <a href="part1" class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition text-center">Step 1</a>
             
                     <!-- Submit Button to go to signup-3 -->
-                    <button type="submit" class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition">Next Step
-</button>
+                    <button type="submit">Register</button>
                             
                 </div>
             </form>
@@ -261,11 +278,6 @@
                 event.preventDefault();
             }
         });
-
-
-
-        
-
     </script>
 
 </body>
