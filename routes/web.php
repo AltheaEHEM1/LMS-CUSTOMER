@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\authController;
+use App\Http\Controllers\AuthController;
 //////////////////////////////////////////////////////////
 //if you want to run the log in of employee
 // Route::get('/', function () {
@@ -73,7 +73,7 @@ use App\Http\Controllers\authController;
 //if you want to run the log in of customer
 //start ito
 Route::get('/', function () {
-    return view('login_customer');
+    return view('homelandingpage_customer');
 });
 
 Route::get('/homelandingpage_customer', function () {
@@ -116,9 +116,9 @@ Route::get('/Hspecific_category', function () {
 //         return view('HOMElandingpage_customer')->name('HOMElandingpage_customer');
 //     });
 
-// Route::get('/RESERVATIONreservation-page', function () {
-//         return view('RESERVATIONreservation-page');
-//     });
+Route::get('/RESERVATIONreservation-page', function () {
+        return view('RESERVATIONreservation-page');
+    });
 
 Route::get('/Hbookdetailswithreserve', function () {
         return view('Hbookdetailswithreserve');
@@ -151,5 +151,13 @@ Route::get('/HOMElandingpage_customer', function () {
      return view('HOMElandingpage_customer');
  })->name('HOMElandingpage_customer');
 
+ // Display the Login Page
+Route::get('/login', function () {
+    return view('login_customer');
+})->name('login.form');
+
+// Handle Login Submission
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 ///END// itong buong block sa taas i run / customer
 ////////////////////////////////////////////////////////////////////////////
+Route::get('/user', [RegistrationController::class, 'getUser']);

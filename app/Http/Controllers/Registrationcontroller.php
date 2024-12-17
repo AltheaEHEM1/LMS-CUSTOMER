@@ -9,6 +9,31 @@ use Illuminate\Routing\Controller as BaseController;
 
 class RegistrationController extends BaseController
 {
+    public function getUser(Request $request)
+    {
+        // Validate input
+        $request->validate([
+            'username' => 'required|string',
+            'email' => 'required|email',
+        ]);
+
+        // Check that both username and email match
+        $user = User::where('username', $request->username)
+                    ->where('email', $request->email)
+                    ->first();
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        // Return the user data
+        return response()->json([
+            'username' => $user->username,
+            'email' => $user->email,
+        ]);
+    }
+
+
     // Step 1: Show the form for step 1
     public function showStepOne()
     {

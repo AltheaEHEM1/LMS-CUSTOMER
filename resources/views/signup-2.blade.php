@@ -44,12 +44,6 @@
                     <p class="text-gray-500 font-medium text-xs text-center">Novella Account</p>
                 </div>
 
-                <div class="hidden lg:block lg:w-1/3 h-[2px] bg-gray-300"></div>
-                <div class="flex flex-col items-center space-y-1">
-                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 text-gray-500 text-sm">3</div>
-                    <p class="text-[#011B33] font-semibold text-xs">Third Step</p>
-                    <p class="text-gray-500 font-medium text-xs text-center">Account Information</p>
-                </div>
             </div>
 
             <p class="text-[#011B33] font-semibold text-lg lg:text-xl mb-6">Library Information</p>
@@ -152,11 +146,11 @@
 
                 <!-- Submit Button -->
                 <div class="flex justify-end space-x-10 space-x-5"> 
-                    Step 1 link (to go back)
-                    <a href="part1" class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition text-center">Step 1</a>
+                    <!-- Step 1 link (to go back) -->
+                    <!-- <a href="part1" class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition text-center">Step 1</a> -->
             
                     <!-- Submit Button to go to signup-3 -->
-                    <button type="submit">Register</button>
+                    <button type="submit"class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition text-center">Register </button>
                             
                 </div>
             </form>
