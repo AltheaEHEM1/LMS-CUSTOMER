@@ -1,4 +1,6 @@
 @include('layout.CHeader')
+@vite('resources/js/Cheader.js')
+
 <section class="relative bg-[#E4ECFF] min-h-screen p-8 sm:p-6 md:p-4 mb-0">
     <img src="./images/customerbg.png" class="absolute inset-0 w-full h-full object-cover" alt="background">
         <h1 class="text-6xl font-bold absolute left-20 translate-y-[220px] text-[#011B33] drop-shadow-[4px_4px_10px_rgba(0,0,0,0.5)]">

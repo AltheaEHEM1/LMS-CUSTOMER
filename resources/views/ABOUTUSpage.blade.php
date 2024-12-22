@@ -1,4 +1,6 @@
 @include('layout.CHeader')
+@vite('resources/js/Cheader.js')
+
 <div class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
     <div class="text-center mb-6">
         <h1 class="text-3xl font-bold text-gray-800">Meet our team</h1>

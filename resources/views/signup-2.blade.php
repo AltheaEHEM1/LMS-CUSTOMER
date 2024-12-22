@@ -6,6 +6,9 @@
     <title>Novella Sign-Up</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    @vite('resources/js/Csignup2.js')
 
 </head>
 <body class="bg-[#E4ECFF] font-poppins">
@@ -102,7 +105,7 @@
                             <span 
                                 class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700" 
                                 onclick="togglePassword('password')">
-                                <img id="passwordIcon" src="images/show-password.png" class="h-5 w-5">
+                                <i id="passwordIcon" class="fas fa-eye"></i>
                             </span>
                         </div>
                         <p class="text-red-500 text-sm mt-1 hidden" id="passwordError">Password is required.</p>
@@ -126,7 +129,7 @@
                             <span 
                                 class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700" 
                                 onclick="togglePassword('confirmPassword')">
-                                <img id="confirmPasswordIcon" src="images/show-password.png" class="h-5 w-5">
+                                <i id="confirmPasswordIcon" class="fas fa-eye"></i>
                             </span>
                         </div>
                         <p class="text-red-500 text-sm mt-1 hidden" id="confirmPasswordError">Passwords do not match.</p>
@@ -157,5 +160,6 @@
         </div>
     </section>
 
+    
 </body>
 </html>
