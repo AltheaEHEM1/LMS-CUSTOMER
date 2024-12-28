@@ -16,7 +16,8 @@
             </div>
             <div class="mt-4 text-center">
                 <h2 class="text-[#011B33] text-lg font-bold">Althea Amor J. Asis</h2>
-                <p class="text-sm text-gray-500">Personal Manager</p>
+                <p class="text-sm text-gray-500">Project Manager</p>
+                <p class="text-sm text-gray-500">Front-end developer</p>
             </div>
         </div>
 
@@ -26,8 +27,9 @@
                 <img src="https://via.placeholder.com/300x200" alt="Team Member Photo" class="w-full h-full object-cover rounded-t-lg">
             </div>
             <div class="mt-4 text-center">
-                <h2 class="text-[#011B33] text-lg font-bold">Althea Amor J. Asis</h2>
-                <p class="text-sm text-gray-500">Personal Manager</p>
+                <h2 class="text-[#011B33] text-lg font-bold">Baron Raniel Aloveros</h2>
+                <p class="text-sm text-gray-500">Back-end Developer</p>
+                <p class="text-sm text-gray-500">Quality Assurance</p>
             </div>
         </div>
 
@@ -37,8 +39,8 @@
                 <img src="https://via.placeholder.com/300x200" alt="Team Member Photo" class="w-full h-full object-cover rounded-t-lg">
             </div>
             <div class="mt-4 text-center">
-                <h2 class="text-[#011B33] text-lg font-bold">Althea Amor J. Asis</h2>
-                <p class="text-sm text-gray-500">Personal Manager</p>
+                <h2 class="text-[#011B33] text-lg font-bold">Ruben Bertuso Jr.</h2>
+                <p class="text-sm text-gray-500">Back-end Developer</p>
             </div>
         </div>
 
@@ -48,8 +50,9 @@
                 <img src="https://via.placeholder.com/300x200" alt="Team Member Photo" class="w-full h-full object-cover rounded-t-lg">
             </div>
             <div class="mt-4 text-center">
-                <h2 class="text-[#011B33] text-lg font-bold">Althea Amor J. Asis</h2>
-                <p class="text-sm text-gray-500">Personal Manager</p>
+                <h2 class="text-[#011B33] text-lg font-bold">Ma. Nadine Borja</h2>
+                <p class="text-sm text-gray-500">Front-end developer</p>
+                <p class="text-sm text-gray-500">Quality Assurance</p>
             </div>
         </div>
 
@@ -59,8 +62,8 @@
                 <img src="https://via.placeholder.com/300x200" alt="Team Member Photo" class="w-full h-full object-cover rounded-t-lg">
             </div>
             <div class="mt-4 text-center">
-                <h2 class="text-[#011B33] text-lg font-bold">Althea Amor J. Asis</h2>
-                <p class="text-sm text-gray-500">Personal Manager</p>
+                <h2 class="text-[#011B33] text-lg font-bold">Styvn Rhyz Kyl Polocarpio</h2>
+                <p class="text-sm text-gray-500">Documentation</p>
             </div>
         </div>
     </div>

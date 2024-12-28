@@ -1,5 +1,7 @@
 @include('layout.CHeader')
-<div class="p-8 bg-[#f8faff]">
+@vite('resources/js/Cheader.js')
+
+<div class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
                 <!-- Profile Header -->
                 <div class="bg-white shadow-md rounded-lg p-6 flex items-center space-x-4 mb-6">
                         <!-- Profile Image -->

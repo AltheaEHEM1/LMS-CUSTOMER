@@ -1,31 +1,21 @@
 
 
 // Toggle password visibility
-        function togglePassword(fieldId) {
-        const field = document.getElementById(fieldId);
-        const icon = document.getElementById(fieldId + 'Icon');
-    
-        // Toggle the password field type
-        const isPassword = field.type === "password";
-        field.type = isPassword ? "text" : "password";
-    
-        // Toggle the icon
-        if (isPassword) {
-            icon.classList.remove("fa-eye");
-            icon.classList.add("fa-eye-slash");
-        } else {
-            icon.classList.remove("fa-eye-slash");
-            icon.classList.add("fa-eye");
-        }  }
-    
-    // Add event listener to the password toggle icon
-    document.querySelectorAll(".password-toggle").forEach(icon => {
-        icon.addEventListener("click", function () {
-            const fieldId = this.dataset.fieldId;
-            togglePassword(fieldId);
-        });
-    });
+    function togglePassword(fieldId) {
+    const field = document.getElementById(fieldId);
+    const icon = document.getElementById(fieldId + 'Icon');
 
+    // Toggle the password field type
+    const isPassword = field.type === "password";
+    field.type = isPassword ? "text" : "password";
+
+    // Toggle the icon
+    if (isPassword) {
+        icon.src = "images/hide-password.png"; // Replace with the path to your "hide" icon
+    } else {
+        icon.src = "images/show-password.png"; // Replace with the path to your "show" icon
+    }
+}
 
 // Real-time input validation (optional)
         document.querySelectorAll("#signupForm input").forEach(input => {
@@ -121,3 +111,4 @@ document.getElementById("signupForm").addEventListener("submit", function (event
         event.preventDefault();
     }
 });
+

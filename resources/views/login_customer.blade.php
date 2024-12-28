@@ -68,7 +68,7 @@
 
                     <!-- Forgot Password Link -->
                     <div class="text-sm text-right">
-                        <a href="#" class="text-blue-500 hover:text-blue-700">Forgot Password?</a>
+                        <a href="login_customer" class="text-blue-500 hover:text-blue-700">Forgot Password?</a>
                     </div>
 
                     <!-- Sign In Button -->

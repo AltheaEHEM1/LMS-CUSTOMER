@@ -45,14 +45,14 @@
                 </div>
 
                 <!-- Centered Navigation Links -->
-                <ul class="flex space-x-12 hidden md:flex">
+                <ul class="flex space-x-12 md:flex">
                         <li><a href="/HOMElandingpage_customer" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-home mr-2"></i> Home</a></li>
                         <li><a href="/RESERVATIONreservation-page" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
                         <li><a href="/ABOUTUSpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
                 </ul>
 
                 <!-- Right-aligned Shelf and My Account --->
-                <div class="flex items-center space-x-12 hidden md:flex">
+                <div class="items-center space-x-12 hidden md:flex">
                         <ul><a href="/SHELFpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a></ul>
    
                          <!-- Notification Icon -->
@@ -75,8 +75,8 @@
                         <div class="relative">
                                 <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>
                                 <ul id="dropdownMenu" class="absolute hidden bg-[#011b33] text-white rounded-md shadow-lg mt-2 py-2 w-48">
-                                        <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"><i class="fa fa-user-circle mr-2"></i> Profile</a></li>
-                                        <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"> <i class="fa fa-sign-out-alt mr-2"></i> Log Out</a></li>
+                                        <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item items-center"><i class="fa fa-user-circle mr-2"></i> Profile</a></li>
+                                        <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item items-center"> <i class="fa fa-sign-out-alt mr-2"></i> Log Out</a></li>
                                 </ul>
                         </div>
                 </div>
@@ -105,7 +105,7 @@
 
 
         <!-- Mobile Menu (hidden by default) -->
-        <div id="mobileMenu" class="md:hidden fixed inset-0 bg-[#011b33] bg-opacity-90 z-50 flex flex-col items-center justify-center space-y-6 py-8 hidden">
+        <div id="mobileMenu" class="md:hidden fixed inset-0 bg-[#011b33] bg-opacity-90 z-50 flex flex-col items-center justify-center space-y-6 py-8">
                 <!-- Close Button (X) -->
                 <button id="closeMenu" class="absolute top-4 right-4 text-white text-3xl">
                         <i class="fas fa-times"></i>

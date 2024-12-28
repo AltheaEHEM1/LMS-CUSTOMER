@@ -1,4 +1,6 @@
 @include('layout.CHeader')
+@vite('resources/js/Cheader.js')
+
 <main class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
                 <!-- Back Button -->
         <div class="flex justify-start mb-4 ml-4 sm:ml-8 md:ml-16 lg:ml-60 mt-16">

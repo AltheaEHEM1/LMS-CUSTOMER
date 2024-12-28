@@ -1,4 +1,5 @@
 @include('layout.CHeader')
+@vite('resources/js/Cheader.js')
 
 <main class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
     <!-- Back Button -->

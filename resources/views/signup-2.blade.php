@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/tabicon.png">
     <title>Novella Sign-Up</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite('resources/js/Csignup2.js')
 
 </head>
@@ -24,7 +25,7 @@
                 <p class="text-lg lg:text-2xl mt-2">with Novella</p>
                 <p class="mt-6 lg:mt-10 text-sm lg:text-lg text-[#BBB9B9]">
                     Already have an account? 
-                    <a href="#" class="underline hover:text-[#011B33]">Login</a>
+                    <a href="login_customer" class="underline hover:text-[#011B33]">Login</a>
                 </p>
             </div>
         </div>
@@ -148,7 +149,7 @@
                 </div>
 
                 <!-- Submit Button -->
-                <div class="flex justify-end space-x-10 space-x-5"> 
+                <div class="flex justify-end space-x-5"> 
                     <!-- Step 1 link (to go back) -->
                     <!-- <a href="part1" class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition text-center">Step 1</a> -->
             

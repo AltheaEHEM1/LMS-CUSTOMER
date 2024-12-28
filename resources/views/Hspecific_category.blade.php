@@ -1,4 +1,5 @@
 @include('layout.CHeader')
+@vite('resources/js/Cheader.js')
         <!-- BOOKS -->
 <div class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
         <!-- Page Title -->

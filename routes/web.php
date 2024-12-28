@@ -3,57 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 //////////////////////////////////////////////////////////
-//if you want to run the log in of employee
-// Route::get('/', function () {
-//     return view('login_employee');
-// });
 
-// Route::get('/DASHBORDandingpage_employee', function () {
-//     return view('DASHBORDandingpage_employee'); 
-// });
-
-// Route::get('/EMPLOYEE', function () {
-//     return view('EMPLOYEE'); 
-// });
-
-// Route::get('/LIBRARIAN', function () {
-//     return view('LIBRARIAN'); 
-// });
-
-// Route::get('/CATALOGER', function () {
-//     return view('CATALOGER'); 
-// });
-
-// Route::get('/MEMBERS', function () {
-//     return view('MEMBERS'); 
-// });
-
-// Route::get('/CIRCULATION', function () {
-//     return view('CIRCULATION'); 
-// });
-
-// Route::get('/CIRCULATION_REPORTS', function () {
-//     return view('CIRCULATION_REPORTS'); 
-// });
-
-// Route::get('/MEMBER_REPORTS', function () {
-//     return view('MEMBER_REPORTS'); 
-// });
-
-// Route::get('/OVERDUE_REPORTS', function () {
-//     return view('OVERDUE_REPORTS'); 
-// });
-
-// Route::get('/CATALOG', function () {
-//     return view('CATALOG'); 
-// });
-
-// Route::get('/CATALOG_REPORTS', function () {
-//     return view('CATALOG_REPORTS'); 
-// });
-
-///END// itong buong block sa taas i run / adminnn
-////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -73,7 +23,7 @@ use App\Http\Controllers\AuthController;
 //if you want to run the log in of customer
 //start ito
 Route::get('/', function () {
-    return view('homelandingpage_customer');
+    return view('login_customer');
 });
 
 Route::get('/homelandingpage_customer', function () {
