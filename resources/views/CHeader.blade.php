@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    @vite('resources/js/Cheader.js')
     <title>Novella</title>
 
     <style>
@@ -31,9 +32,11 @@
             scrollbar-width: none; /* For Firefox */
             -ms-overflow-style: none; /* For Internet Explorer and Edge */
         }
+
         #notificationBox::-webkit-scrollbar, #mobileNotificationBox::-webkit-scrollbar {
             display: none; /* For Chrome, Safari, and Opera */
         }
+        
     </style>
 </head>
 
@@ -45,17 +48,17 @@
                 </div>
 
                 <!-- Centered Navigation Links -->
-                <ul class="flex space-x-12 md:flex">
+                <ul class="space-x-12 md:flex hidden">
                         <li><a href="/HOMElandingpage_customer" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-home mr-2"></i> Home</a></li>
                         <li><a href="/RESERVATIONreservation-page" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
                         <li><a href="/ABOUTUSpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
                 </ul>
 
-                <!-- Right-aligned Shelf and My Account --->
+                <!-- Right-aligned Shelf and My Account -->
                 <div class="items-center space-x-12 hidden md:flex">
                         <ul><a href="/SHELFpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a></ul>
    
-                         <!-- Notification Icon -->
+                        <!-- Notification Icon -->
                         <div class="relative">
                                 <i id="notificationIcon" class="fa fa-bell text-white text-xl hover:text-[#028ABE] cursor-pointer"></i>
                                 <!-- Notification Badge -->
@@ -121,5 +124,6 @@
                         <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Log Out</a></li>
                 </ul>
         </div>
+
 
         

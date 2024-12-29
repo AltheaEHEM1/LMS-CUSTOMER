@@ -1,5 +1,5 @@
-@include('layout.CHeader')
-@vite('resources/js/Cheader.js')
+@include('CHeader')
+
     <div class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
         <div class="text-center">
             <h2 class="text-[#011B33] text-2xl font-bold mb-4 text-left">My Reservation</h2>
@@ -85,6 +85,6 @@
     </div>
 
 
-@include('layout.CFooter')
+@include('CFooter')
 </body>
 </html>

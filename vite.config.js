@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/js/Clogin.js', 
                 'resources/js/Csignup.js',
                 'resources/js/Csignup2.js',
+                'resources/js/Shelf.js',
                 'resources/js/Cheader.js',],
             refresh: true,
         }),

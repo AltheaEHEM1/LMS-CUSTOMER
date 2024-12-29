@@ -1,5 +1,4 @@
-@include('layout.CHeader')
-@vite('resources/js/Cheader.js')
+@include('CHeader')
 
 <div class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
                 <!-- Profile Header -->
@@ -109,7 +108,7 @@
         </div>
 
         <!-- Photo Upload Modal -->
-        <div id="photoModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+        <div id="photoModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
                 <div class="bg-white p-6 rounded-lg w-full max-w-md">
                 <!-- Modal Header -->
                 <div class="flex justify-between items-center mb-4">
@@ -134,7 +133,7 @@
         </div>
 
         <!-- Profile Modal -->
-        <div id="profileModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+        <div id="profileModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
                 <div class="bg-white p-6 rounded-lg w-full max-w-lg">
                         <!-- Modal Header -->
                         <div class="flex justify-between mb-4">
@@ -193,7 +192,7 @@
         </div>
         
         <!-- Address Modal -->
-        <div id="addressModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
+        <div id="addressModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
                 <div class="bg-white p-6 rounded-lg w-full max-w-lg">
                         <!-- Modal Header -->
                         <div class="flex justify-between mb-4">
@@ -246,6 +245,6 @@
                     </form>
                 </div>
         </div>
-@include('layout.CFooter')
+@include('CFooter')
 </body>
 </html>

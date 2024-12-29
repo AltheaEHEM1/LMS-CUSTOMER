@@ -1,5 +1,5 @@
-@include('layout.CHeader')
-@vite('resources/js/Cheader.js')
+@include('CHeader')
+
         <!-- BOOKS -->
 <div class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
         <!-- Page Title -->
@@ -51,6 +51,6 @@
 </div>
 
 
-@include('layout.CFooter')
+@include('CFooter')
 </body>
 </html>

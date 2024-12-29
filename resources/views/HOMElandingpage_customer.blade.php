@@ -1,5 +1,4 @@
-@include('layout.CHeader')
-@vite('resources/js/Cheader.js')
+@include('CHeader')
 
 <section class="relative bg-[#E4ECFF] min-h-screen p-8 sm:p-6 md:p-4 mb-0">
     <img src="./images/customerbg.png" class="absolute inset-0 w-full h-full object-cover" alt="background">
@@ -37,7 +36,7 @@
 </div>
 
 <!-- Categories Section -->
-<div class="mx-auto bg-[#E4ECFF] p-10 rounded-lg shadow-md mx-12">
+<div class="mx-auto bg-[#E4ECFF] p-10 rounded-lg shadow-md">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <!-- Category Cards-->
                 <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300">
@@ -53,7 +52,7 @@
         </div>
 </div>
 
-@include('layout.CFooter')
+@include('CFooter')
 
 </body>
 </html>
