@@ -28,52 +28,33 @@
             dropdownMenu.classList.toggle('hidden');
         });
 
-        // Toggle mobile menu
-        const hamburgerMenu = document.getElementById('hamburgerMenu');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeMenu = document.getElementById('closeMenu');
-
-        hamburgerMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
+         // Open/Close mobile menu
+         document.getElementById("hamburgerMenu").addEventListener("click", function() {
+            document.getElementById("mobileMenu").classList.remove("hidden");
         });
 
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+        // Close mobile menu when 'X' is clicked
+        document.getElementById("closeMenu").addEventListener("click", function() {
+            document.getElementById("mobileMenu").classList.add("hidden");
         });
+
+        // Function to open a modal by ID
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        // Function to close a modal by ID
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
  
-
-        //logout
-       // Show the Log Out confirmation modal
-        function showLogoutModal() {
-            // Check if the modal is being triggered correctly
-            const logoutModal = document.getElementById('logoutModal');
-            if (logoutModal) {
-                logoutModal.classList.remove('hidden');
-            }
-        }
-
-        // Close the Log Out confirmation modal
-        function closeLogoutModal() {
-            const logoutModal = document.getElementById('logoutModal');
-            if (logoutModal) {
-                logoutModal.classList.add('hidden');
-            }
-        }
-
-        // Perform the Log Out action
-        function logout() {
-            console.log("User has logged out.");
-            closeLogoutModal();  // Close the modal after logging out
-            window.location.href = '/login';  // Redirect to login page after logout
-        }
-
-        // Ensure the logout modal works in mobile and desktop views
-        document.querySelectorAll('.dropdown-item').forEach(item => {
-            item.addEventListener('click', (e) => {
-                if (e.target.textContent === 'Log Out') {
-                    showLogoutModal(); // Trigger modal on logout
-                }
-            });
-        });
 
 

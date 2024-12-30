@@ -27,4 +27,14 @@ class AuthController extends BaseController
             'email' => 'The email or password is wrong.',
         ])->withInput($request->only('email'));
     }
+
+    public function destroy(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/HOMElandingpage_customer')->with('message', 'Logged out successfully.');
+    }
 }

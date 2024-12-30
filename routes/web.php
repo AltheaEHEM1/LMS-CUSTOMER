@@ -22,11 +22,8 @@ use App\Http\Controllers\AuthController;
 ////////////////////////////////////////////////////////////////////////////
 //if you want to run the log in of customer
 //start ito
-Route::get('/', function () {
-    return view('login_customer');
-});
 
-Route::get('/homelandingpage_customer', function () {
+Route::get('/', function () {
      return view('homelandingpage_customer');
 });
 
@@ -108,6 +105,5 @@ Route::get('/login', function () {
 
 // Handle Login Submission
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-///END// itong buong block sa taas i run / customer
-////////////////////////////////////////////////////////////////////////////
 Route::get('/user', [RegistrationController::class, 'getUser']);
+Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
