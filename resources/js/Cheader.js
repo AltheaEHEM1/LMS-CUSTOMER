@@ -41,3 +41,39 @@
             mobileMenu.classList.add('hidden');
         });
  
+
+        //logout
+       // Show the Log Out confirmation modal
+        function showLogoutModal() {
+            // Check if the modal is being triggered correctly
+            const logoutModal = document.getElementById('logoutModal');
+            if (logoutModal) {
+                logoutModal.classList.remove('hidden');
+            }
+        }
+
+        // Close the Log Out confirmation modal
+        function closeLogoutModal() {
+            const logoutModal = document.getElementById('logoutModal');
+            if (logoutModal) {
+                logoutModal.classList.add('hidden');
+            }
+        }
+
+        // Perform the Log Out action
+        function logout() {
+            console.log("User has logged out.");
+            closeLogoutModal();  // Close the modal after logging out
+            window.location.href = '/login';  // Redirect to login page after logout
+        }
+
+        // Ensure the logout modal works in mobile and desktop views
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (e.target.textContent === 'Log Out') {
+                    showLogoutModal(); // Trigger modal on logout
+                }
+            });
+        });
+
+

@@ -36,6 +36,11 @@
         #notificationBox::-webkit-scrollbar, #mobileNotificationBox::-webkit-scrollbar {
             display: none; /* For Chrome, Safari, and Opera */
         }
+
+        #logoutModal {
+            z-index: 9999; /* Ensure it's above other content */
+        }
+
         
     </style>
 </head>
@@ -79,7 +84,7 @@
                                 <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>
                                 <ul id="dropdownMenu" class="absolute hidden bg-[#011b33] text-white rounded-md shadow-lg mt-2 py-2 w-48">
                                         <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item items-center"><i class="fa fa-user-circle mr-2"></i> Profile</a></li>
-                                        <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item items-center"> <i class="fa fa-sign-out-alt mr-2"></i> Log Out</a></li>
+                                        <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item items-center" onclick="showLogoutModal()"><i class="fa fa-sign-out-alt mr-2"></i> Log Out</a></li>
                                 </ul>
                         </div>
                 </div>
@@ -121,9 +126,23 @@
                         <li><a href="/ABOUTUSpage" class="text-white text-2xl hover:text-[#028ABE]">About Us</a></li>
                         <li><a href="/SHELFpage" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
                         <li><a href="/PROFILEpage" class="text-white text-2xl hover:text-[#028ABE]">Profile</a></li>
-                        <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Log Out</a></li>
+                        <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]" onclick="showLogoutModal()">Log Out</a></li>
                 </ul>
         </div>
+
+
+        <!-- Log Out Confirmation Modal -->
+        <div id="logoutModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 items-center justify-center z-50">
+                <div class="bg-white p-6 rounded-lg w-96 max-w-md">
+                        <h3 class="text-lg font-bold text-[#011B33] mb-4">Are you sure you want to log out?</h3>
+                        <div class="flex justify-end space-x-4">
+                        <button onclick="closeLogoutModal()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-200">Cancel</button>
+                        <button onclick="logout()" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Log Out</button>
+                        </div>
+                </div>
+        </div>
+
+
 
 
         
