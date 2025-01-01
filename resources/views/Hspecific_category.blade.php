@@ -38,12 +38,14 @@
                                                         </div>
                                                         </a>
 
-                                                        <!-- Bookmark Button -->
+                                                       @auth
+                                                                <!-- Bookmark Button -->
                                                         <div class="ml-4">
                                                                 <button class="flex items-center bg-black text-white px-4 py-2 rounded-md hover:bg-[#028ABE]">
                                                                         <i class="fas fa-bookmark mr-2"></i> Bookmark
                                                                 </button>
                                                         </div>
+                                                       @endauth
                                                 </div>
                                         </div>
                                 </div>

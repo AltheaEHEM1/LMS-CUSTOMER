@@ -68,11 +68,13 @@
 
                 <!-- Reserve Button and Status -->
                 <div class="flex flex-col space-y-4">
+                    @auth
                     <a href="/Hreservationdetails">
                         <button class="bg-[#028ABE] text-white py-2 px-4 rounded-lg w-full hover:bg-[#026c94] transition duration-200">
                             Reserve
                         </button>
                     </a>
+                    @endauth
                     <div class="text-center">
                         <p class="text-lg font-semibold">Status:</p>
                         <p class="text-green-600">Available</p>
