@@ -1,4 +1,5 @@
 @include('CHeader')
+{{-- @vite('resources/js/homepage.js') uncomment this line to enable Vite --}}
 
 <section class="relative bg-[#E4ECFF] min-h-screen p-8 sm:p-6 md:p-4 mb-0">
     <img src="./images/customerbg.png" class="absolute inset-0 w-full h-full object-cover" alt="background">

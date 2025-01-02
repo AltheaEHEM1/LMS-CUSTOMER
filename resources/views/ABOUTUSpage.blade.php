@@ -1,4 +1,5 @@
 @include('CHeader')
+{{-- @vite('resources/js/about-us.js') uncomment this line to enable Vite --}}
 
 <div class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
     <div class="text-center mb-6">

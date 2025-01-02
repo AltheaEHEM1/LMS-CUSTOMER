@@ -1,4 +1,5 @@
 @include('CHeader')
+{{-- @vite('resources/js/reservation-details.js') uncomment this line to enable Vite --}}
 
 <main class="bg-[#E4ECFF] min-h-screen flex flex-col items-center justify-center p-8 mt-[-90px] mb-[-90px]">
     <!-- Book Details Section -->
