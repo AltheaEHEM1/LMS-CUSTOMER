@@ -1,5 +1,5 @@
 @include('CHeader')
-@vite('resources/js/Shelf.js')
+@vite('resources/js/shelf.js')
 
 <main class="bg-[#E4ECFF] min-h-screen p-10 mb-0">
     <h1 class="text-2xl font-bold ml-20 text-gray-800">My Shelf</h1>
@@ -70,7 +70,8 @@
     </div>
 </main>
 
-<script>
+{{-- to be removed --}}
+{{-- <script>
     // Handle the row click for redirection
     function handleRowClick(event) {
         if (event.target.type !== 'checkbox') {
@@ -82,7 +83,7 @@
     function handleCheckboxClick(event) {
         event.stopPropagation(); // Prevent the row click from triggering
     }
-</script>
+</script> --}}
 
 @include('CFooter')
 

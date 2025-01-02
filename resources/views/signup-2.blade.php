@@ -7,8 +7,9 @@
     <title>Novella Sign-Up</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     @vite('resources/js/Csignup2.js')
 
 </head>
@@ -160,6 +161,31 @@
             </form>
         </div>
     </section>
+
+
+    <script>
+        // Toggle password visibility
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            const icon = document.getElementById(fieldId + 'Icon');
+        
+            // Toggle the password field type
+            const isPassword = field.type === "password";
+            field.type = isPassword ? "text" : "password";
+        
+            // Toggle the icon
+            if (isPassword) {
+                icon.classList.add('fa-eye-slash');
+                icon.classList.remove('fa-eye');
+            } else {
+                icon.classList.add('fa-eye');
+                icon.classList.remove('fa-eye-slash');
+            }
+        }
+
+    </script>
+
+
 
     
 </body>
