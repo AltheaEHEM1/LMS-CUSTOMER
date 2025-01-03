@@ -1,27 +1,37 @@
 
     //  // Toggle password visibility
-    // function togglePassword(fieldId) {
-    //     const field = document.getElementById(fieldId);
-    //     const icon = document.getElementById(fieldId + 'Icon');
-        
-    //     if (!field || !icon) {
-    //         console.error('Field or icon not found');
-    //         return;
-    //     }
+    // Password visibility toggle for Password field
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordField = document.getElementById('passwordField');
+    const eyeIconPassword = togglePassword.querySelector('i');
+
+    togglePassword.addEventListener('click', function () {
+        // Toggle password visibility
+        const isPasswordHidden = passwordField.type === 'password';
+        passwordField.type = isPasswordHidden ? 'text' : 'password';
+
+        // Toggle icon
+        eyeIconPassword.classList.toggle('fa-eye');
+        eyeIconPassword.classList.toggle('fa-eye-slash');
+    });
+
+    // Password visibility toggle for Confirm Password field
+    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+    const confirmPasswordField = document.getElementById('confirmPasswordField');
+    const eyeIconConfirmPassword = toggleConfirmPassword.querySelector('i');
+
+    toggleConfirmPassword.addEventListener('click', function () {
+        // Toggle password visibility
+        const isPasswordHidden = confirmPasswordField.type === 'password';
+        confirmPasswordField.type = isPasswordHidden ? 'text' : 'password';
+
+        // Toggle icon
+        eyeIconConfirmPassword.classList.toggle('fa-eye');
+        eyeIconConfirmPassword.classList.toggle('fa-eye-slash');
+    });
+
     
-    //     // Toggle the password field type
-    //     const isPassword = field.type === "password";
-    //     field.type = isPassword ? "text" : "password";
-    
-    //     // Toggle the icon
-    //     if (isPassword) {
-    //         icon.classList.add('fa-eye-slash');
-    //         icon.classList.remove('fa-eye');
-    //     } else {
-    //         icon.classList.add('fa-eye');
-    //         icon.classList.remove('fa-eye-slash');
-    //     }
-    // }
+
 
     // Real-time input validation
     document.querySelectorAll("#signupForm input").forEach(input => {

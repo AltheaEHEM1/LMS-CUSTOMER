@@ -90,52 +90,54 @@
                     </div>
 
                     <!-- Password -->
-                    <div class="w-[80%] relative">
-                        <label for="password" class="block text-sm font-medium text-gray-700">
-                            Password <span class="text-red-500">*</span>
-                        </label>
-                        <div class="relative w-full mt-1">
-                            <input 
-                                type="password" 
-                                placeholder="Enter your password" 
-                                id="password" 
-                                name="password" 
-                                required 
-                                class="w-full border border-[#011B33] rounded-md p-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                            
-                            <!-- Toggle Icon -->
-                            <span 
-                                class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700" 
-                                onclick="togglePassword('password')">
-                                <i id="passwordIcon" class="fas fa-eye"></i>
-                            </span>
-                        </div>
-                        <p class="text-red-500 text-sm mt-1 hidden" id="passwordError">Password is required.</p>
-                    </div>
+<div class="w-[80%] relative">
+    <label for="passwordField" class="block text-sm font-medium text-gray-700">
+        Password <span class="text-red-500">*</span>
+    </label>
+    <div class="relative w-full mt-1">
+        <input 
+            type="password" 
+            placeholder="Enter your password" 
+            id="passwordField" 
+            name="password" 
+            required 
+            class="w-full border border-[#011B33] rounded-md p-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+        
+        <!-- Toggle Icon -->
+        <span 
+            id="togglePassword" 
+            class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700">
+            <i class="fas fa-eye"></i>
+        </span>
+    </div>
+    <p class="text-red-500 text-sm mt-1 hidden" id="passwordError">Password is required.</p>
+</div>
 
-                    <!-- Confirm Password -->
-                    <div class="w-[80%] relative">
-                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700">
-                            Confirm Password <span class="text-red-500">*</span>
-                        </label>
-                        <div class="relative w-full mt-1">
-                            <input 
-                                type="password" 
-                                placeholder="Enter your password again" 
-                                id="confirmPassword" 
-                                name="confirmPassword" 
-                                required 
-                                class="w-full border border-[#011B33] rounded-md p-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+<!-- Confirm Password -->
+<div class="w-[80%] relative">
+    <label for="confirmPasswordField" class="block text-sm font-medium text-gray-700">
+        Confirm Password <span class="text-red-500">*</span>
+    </label>
+    <div class="relative w-full mt-1">
+        <input 
+            type="password" 
+            placeholder="Enter your password again" 
+            id="confirmPasswordField" 
+            name="confirmPassword" 
+            required 
+            class="w-full border border-[#011B33] rounded-md p-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none">
 
-                            <!-- Toggle Icon for Confirm Password -->
-                            <span 
-                                class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700" 
-                                onclick="togglePassword('confirmPassword')">
-                                <i id="confirmPasswordIcon" class="fas fa-eye"></i>
-                            </span>
-                        </div>
-                        <p class="text-red-500 text-sm mt-1 hidden" id="confirmPasswordError">Passwords do not match.</p>
-                    </div>
+        <!-- Toggle Icon -->
+        <span 
+            id="toggleConfirmPassword" 
+            class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700">
+            <i class="fas fa-eye"></i>
+        </span>
+    </div>
+    <p class="text-red-500 text-sm mt-1 hidden" id="confirmPasswordError">Passwords do not match.</p>
+</div>
+
+
 
                     <!-- General Error -->
                     <div id="formErrorMessage" class="text-red-500 text-sm hidden">
@@ -163,7 +165,7 @@
     </section>
 
 
-    <script>
+    {{-- <script> remove this code
         // Toggle password visibility
         function togglePassword(fieldId) {
             const field = document.getElementById(fieldId);
@@ -183,7 +185,7 @@
             }
         }
 
-    </script>
+    </script> --}}
 
 
 
