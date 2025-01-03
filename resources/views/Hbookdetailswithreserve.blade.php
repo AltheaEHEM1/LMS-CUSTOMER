@@ -14,7 +14,7 @@
         <!-- Book Details Section -->
         <div class="flex flex-col lg:flex-row w-full space-y-8 lg:space-y-0 lg:space-x-8 mt-5">
             <!-- Book Image -->
-            <div class="flex-shrink-0 w-40 mx-auto lg:w-48 lg:mx-0">
+            <div class="flex-shrink-0 w-40 mx-auto lg:w-48 lg:mx-0 mt-20">
                 <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="w-full h-72 rounded-lg shadow-md">
             </div>
 
@@ -41,11 +41,15 @@
                         <p class="inline">1234567891012</p>
                     </div>
                     <div>
-                        <p class="font-semibold inline mr-2">Category:</p>
-                        <p class="inline">Unknown</p>
+                        <p class="font-semibold inline mr-2">ASIN:</p>
+                        <p class="inline">1234567891012</p>
                     </div>
                     <div>
-                        <p class="font-semibold inline mr-2">Publication Year:</p>
+                        <p class="font-semibold inline mr-2">First Published:</p>
+                        <p class="inline">1961</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold inline mr-2">Published:</p>
                         <p class="inline">1961</p>
                     </div>
                     <div>
@@ -62,6 +66,10 @@
                     </div>
                     <div>
                         <p class="font-semibold inline mr-2">Stock:</p>
+                        <p class="inline">4</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold inline mr-2">Language</p>
                         <p class="inline">4</p>
                     </div>
                 </div>
