@@ -23,14 +23,28 @@
                 <p class="text-3xl font-semibold mb-2" style="font-family: 'Poppins', sans-serif;">Sign In</p>
                 <p class="text-lg mb-4" style="font-family: 'Poppins', sans-serif;">Please enter your account details.</p>
 
+                <!-- Display Validation Errors -->
+                @if ($errors->any())
+                    <div class="bg-red-500 text-white p-3 rounded mb-4">
+                        <ul class="list-disc ml-5">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <!-- Sign In Form -->
-                <form class="w-full max-w-sm space-y-4" id="LoginForm">
+                <form method="POST" action="{{ route('login') }}" class="w-full max-w-sm space-y-4">
+                    @csrf <!-- CSRF Protection -->
+
                     <!-- Email Input -->
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-300 text-left">
                             Email <span class="text-red-500">*</span>
                         </label>
                         <input type="email" id="email" name="email" placeholder="Enter your email"
+                            value="{{ old('email') }}"
                             class="mt-1 p-3 w-full rounded-md border border-gray-300 focus:ring-[#011b33] focus:border-[#011b33] text-black" required>
                     </div>
 
@@ -60,7 +74,6 @@
                 </form>
             </div>
 
-
             <!-- Image side -->
             <div class="w-1/2 overflow-hidden relative" style="border-top-left-radius: 40px; border-bottom-left-radius: 40px;">
                 <!-- Background Image -->
@@ -71,7 +84,7 @@
                 >
 
                 <div class="absolute inset-0 flex items-start justify-center pt-16"> 
-                    <!-- Overlay Container --->
+                    <!-- Overlay Container -->
                     <div class="bg-[#011b33] bg-opacity-40 rounded-xl w-[70%] h-[90%] p-10 flex flex-col justify-start items-center"> 
                         <!-- Text Content -->
                         <div class="text-left text-white space-y-2">
@@ -79,74 +92,31 @@
                             <h1 class="text-3xl font-bold">Discover your next read</h1>
                             <h2 class="text-xl font-semibold">with Novella</h2>
                         </div>
-                        <!-- "Need an account?"  -->
+                        <!-- "Need an account?" -->
                         <div class="text-left text-white mt-auto"> 
                             Need an account? <a href="signup" class="text-blue-300 underline hover:text-blue-500">Sign up</a>
                         </div>
                     </div>
                 </div>
-           </div>
+            </div>
         </div>
-        
     </section>
 
     <script>
-               // Get the form and the input elements
-        const form = document.getElementById('LoginForm');
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
-        const togglePasswordIcon = document.getElementById('togglePassword');
-        const eyeIcon = togglePasswordIcon.querySelector('i');
-
-        // Add event listener to handle form submission
-        form.addEventListener('submit', function (e) {
-            // Prevent the form from submitting if validation fails
-            e.preventDefault();
-
-            // Check if email and password are provided
-            const email = emailInput.value.trim();
-            const password = passwordInput.value.trim();
-
-            if (email === '' || password === '') {
-                alert('Please enter both email and password.');
-                return; // Stop form submission if validation fails
-            }
-
-            // If validation passes, navigate to the landing page
-            window.location.href = '/HOMElandingpage_customer'; // Navigate to the new page
-        });
-
-        // Toggle password visibility
-        // Get the toggle button and password field
+        // Password visibility toggle
         const togglePassword = document.getElementById('togglePassword');
         const passwordField = document.getElementById('password');
+        const eyeIcon = togglePassword.querySelector('i');
 
-        // Ensure password is hidden by default
-        passwordInput.type = 'password';
-
-        // Ensure the eye icon is set to 'open eye' by default
-        eyeIcon.classList.remove('fa-eye-slash');
-        eyeIcon.classList.add('fa-eye');
-
-        // Toggle password visibility logic
         togglePassword.addEventListener('click', function () {
-            // Check if the password is currently hidden
-            const isPasswordHidden = passwordInput.type === 'password';
-            passwordInput.type = isPasswordHidden ? 'text' : 'password';
+            // Toggle password visibility
+            const isPasswordHidden = passwordField.type === 'password';
+            passwordField.type = isPasswordHidden ? 'text' : 'password';
 
-            // Update the eye icon
-            if (isPasswordHidden) {
-                // When password becomes visible, show the closed eye icon
-                eyeIcon.classList.remove('fa-eye');
-                eyeIcon.classList.add('fa-eye-slash');
-            } else {
-                // When password is hidden, show the open eye icon
-                eyeIcon.classList.remove('fa-eye-slash');
-                eyeIcon.classList.add('fa-eye');
-            }
+            // Toggle icon
+            eyeIcon.classList.toggle('fa-eye');
+            eyeIcon.classList.toggle('fa-eye-slash');
         });
-
-
     </script>
 </body>
 </html>
