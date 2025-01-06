@@ -7,7 +7,7 @@
                 <!-- Profile Header -->
                 <div class="bg-white shadow-md rounded-lg p-10 flex items-center space-x-4 mb-6">
                         <!-- Profile Image -->
-                        <div class="w-16 h-20 bg-gray-300 rounded-full"></div>
+                        <div class="w-20 h-20 bg-gray-300 rounded-full"></div>
                         <!-- Profile Name -->
                         <div>
                                 <h2 class="text-lg font-bold text-[#011B33]">Althea Amor J. Asis</h2>

@@ -45,10 +45,6 @@
                         <p class="inline">1234567891012</p>
                     </div>
                     <div>
-                        <p class="font-semibold inline mr-2">First Published:</p>
-                        <p class="inline">1961</p>
-                    </div>
-                    <div>
                         <p class="font-semibold inline mr-2">Published:</p>
                         <p class="inline">1961</p>
                     </div>
