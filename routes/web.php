@@ -24,7 +24,7 @@ use App\Http\Controllers\AuthController;
 //start ito
 
 Route::get('/', function () {
-     return view('homelandingpage_customer');
+     return view('HOMElandingpage_customer');
 });
 
 Route::get('/signup', function () {
