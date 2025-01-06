@@ -1,6 +1,7 @@
 @include('CHeader')
 @vite('resources/js/shelf.js')
 
+
 <main class="bg-[#E4ECFF] min-h-screen p-10 mb-0">
     <h1 class="text-2xl font-bold ml-20 text-gray-800">My Shelf</h1>
 
@@ -49,11 +50,10 @@
                             <th class="border border-gray-300 px-4 py-2 hidden lg:table-cell">Item Type</th>
                         </tr>
                     </thead>
-
                     <tbody>
-                        <tr class="bg-white items-center text-center hover:scale-105 transition-transform duration-300" onclick="handleRowClick(event)">
+                        <tr class="bg-white items-center text-center table-row hover:bg-gray-100">
                             <td class="px-4 py-2">
-                                <input type="checkbox" class="form-checkbox w-4 h-4" onclick="handleCheckboxClick(event)" />
+                                <input type="checkbox" class="form-checkbox w-4 h-4" />
                             </td>
                             <td class="px-4 py-2">
                                 <img src="https://via.placeholder.com/100" alt="Noli Me Tangere" 
@@ -65,6 +65,7 @@
                         </tr>
                     </tbody>
                 </table>
+                
             </div>
         </div>
     </div>
