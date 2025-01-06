@@ -46,7 +46,7 @@
                                 alt="[categoty img]" 
                                 class="w-full h-45 object-cover rounded-t-lg"
                                 >
-                                <div class="p-1 text-center font-semibold">[categoty name]</div>
+                                <div class="p-1 text-center font-semibold">[category name]</div>
                         </a>
                 </div>
         </div>
