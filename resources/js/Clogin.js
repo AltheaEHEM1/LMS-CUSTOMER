@@ -13,3 +13,5 @@ togglePassword.addEventListener('click', function () {
     eyeIcon.classList.toggle('fa-eye');
     eyeIcon.classList.toggle('fa-eye-slash');
 });
+// console.log('Clogin.js loaded');
+// alert('Clogin.js loaded');
