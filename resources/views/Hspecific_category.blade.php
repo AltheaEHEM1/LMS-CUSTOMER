@@ -1,4 +1,5 @@
 @include('CHeader')
+{{-- @vite('resources/js/specific-category.js') uncomment this line to enable Vite for this file --}}
 
 <main>
         <!-- BOOKS -->

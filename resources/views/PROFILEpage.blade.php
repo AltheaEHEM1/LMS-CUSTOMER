@@ -1,5 +1,5 @@
 @include('CHeader')
-@vite('resources/js/Profile.js')
+@vite('resources/js/profile.js')
 
 <main class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
         <!-- Profile Section -->
@@ -246,7 +246,9 @@
         </div>
 </main>
 
-<script>
+
+{{-- TO BE REMOVED --}}
+{{-- <script>
         // Function to open a modal by ID
         function openModal(modalId) {
         const modal = document.getElementById(modalId);
@@ -265,6 +267,6 @@
         }
         }
 
-</script>
+</script> --}}
 
 @include('CFooter')

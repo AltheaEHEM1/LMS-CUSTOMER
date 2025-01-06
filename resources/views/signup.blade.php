@@ -114,8 +114,10 @@
                     <button type="submit" class="w-full py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition">Next Step</button>
 
                 <!-- General Error -->
-                <div id="formErrorMessage" class="text-red-500 text-sm hidden">
-                    Please fill out all fields.
+                <div id="formErrorMessageContainer" class="h-5">
+                    <span id="formErrorMessage" class="text-red-500 text-sm hidden">
+                        Please fill out all fields.
+                    </span>
                 </div>
             </form>
         </div>
