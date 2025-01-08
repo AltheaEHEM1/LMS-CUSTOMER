@@ -26,7 +26,7 @@
                                                         <!-- Link for Book Image and Details -->
                                                         <a href="/Hbookdetailswithreserve" class="flex flex-col sm:flex-row items-center flex-grow text-left">
                                                         <!-- Book Image -->
-                                                        <img src="https://via.placeholder.com/100" alt="Noli Me Tangere" 
+                                                        <img src="./images/noli.jpg" alt="Noli Me Tangere" 
                                                                 class="w-24 h-32 rounded-lg sm:w-32 sm:h-40 object-cover">
 
                                                         <!-- Book Details -->
