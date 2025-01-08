@@ -60,9 +60,9 @@ Route::get('/Hspecific_category', function () {
         return view('Hspecific_category');
     });
 
-// Route::get('/HOMElandingpage_customer', function () {
-//         return view('HOMElandingpage_customer')->name('HOMElandingpage_customer');
-//     });
+Route::get('/HOMElandingpage_customer', function () {
+        return view('HOMElandingpage_customer');
+    });
 
 Route::get('/RESERVATIONreservation-page', function () {
         return view('RESERVATIONreservation-page');
