@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\Registrationcontroller;
 //////////////////////////////////////////////////////////
 
 
@@ -89,10 +89,10 @@ Route::get('/ Hreservationdetails', function () {
     });
 
 
-Route::get('/register-step-one', [RegistrationController::class, 'showStepOne'])->name('register.step.one');
-Route::post('/register-step-one', [RegistrationController::class, 'handleStepOne'])->name('register.step.one');
-Route::get('/register-step-two', [RegistrationController::class, 'showStepTwo'])->name('register.step.two');
-Route::post('/register', [RegistrationController::class, 'register'])->name('register');
+Route::get('/register-step-one', [Registrationcontroller::class, 'showStepOne'])->name('register.step.one');
+Route::post('/register-step-one', [Registrationcontroller::class, 'handleStepOne'])->name('register.step.one');
+Route::get('/register-step-two', [Registrationcontroller::class, 'showStepTwo'])->name('register.step.two');
+Route::post('/register', [Registrationcontroller::class, 'register'])->name('register');
 
 Route::get('/HOMElandingpage_customer', function () {
      return view('HOMElandingpage_customer');
@@ -105,7 +105,7 @@ Route::get('/login', function () {
 
 // Handle Login Submission
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/user', [RegistrationController::class, 'getUser']);
+Route::get('/user', [Registrationcontroller::class, 'getUser']);
 
 
 Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
