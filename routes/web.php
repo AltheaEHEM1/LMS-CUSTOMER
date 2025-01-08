@@ -90,7 +90,7 @@ Route::get('/ Hreservationdetails', function () {
 
 
 Route::get('/register-step-one', [RegistrationController::class, 'showStepOne'])->name('register.step.one');
-Route::post('/register-step-one', [RegistrationController::class, 'handleStepOne'])->name('register.step.one');
+Route::post('/register-step-one1', [RegistrationController::class, 'handleStepOne'])->name('register.step.one');
 Route::get('/register-step-two', [RegistrationController::class, 'showStepTwo'])->name('register.step.two');
 Route::post('/register', [RegistrationController::class, 'register'])->name('register');
 
