@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegistrationController;
 //////////////////////////////////////////////////////////
 
 
@@ -87,7 +88,6 @@ Route::get('/ Hreservationdetails', function () {
         return view(' Hreservationdetails');
     });
 
-use App\Http\Controllers\RegistrationController;
 
 Route::get('/register-step-one', [RegistrationController::class, 'showStepOne'])->name('register.step.one');
 Route::post('/register-step-one', [RegistrationController::class, 'handleStepOne'])->name('register.step.one');
