@@ -56,7 +56,7 @@
             <!-- Team Member Card 3 -->
             <div class="bg-gray-100 rounded-lg shadow-md p-6 flex flex-col items-center w-[250px] relative group">
                 <div class="bg-gray-100 w-[250px] h-[200px] rounded-t-lg p-4">
-                    <img src="./images/Ruben.jpg" alt="Team Member Photo" class="w-full h-full object-cover rounded-t-lg">
+                    <img src="./images/ruben.jpg" alt="Team Member Photo" class="w-full h-full object-cover rounded-t-lg">
                 </div>
                 <div class="mt-4 text-center">
                     <h2 class="text-[#011B33] text-lg font-bold">Ruben Bertuso Jr.</h2>
