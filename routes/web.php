@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Registrationcontroller;
+use App\Http\Controllers\ProfileController;
 //////////////////////////////////////////////////////////
 
 
@@ -60,9 +61,9 @@ Route::get('/Hspecific_category', function () {
         return view('Hspecific_category');
     });
 
-Route::get('/HOMElandingpage_customer', function () {
-        return view('HOMElandingpage_customer');
-    });
+// Route::get('/HOMElandingpage_customer', function () {
+//         return view('HOMElandingpage_customer')->name('HOMElandingpage_customer');
+//     });
 
 Route::get('/RESERVATIONreservation-page', function () {
         return view('RESERVATIONreservation-page');
@@ -109,3 +110,15 @@ Route::get('/user', [Registrationcontroller::class, 'getUser']);
 
 
 Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
+
+
+Route::middleware(['auth'])->group(function () {
+    // Show profile page
+    Route::get('/profile', [ProfileController::class, 'show'])->name('Profilepage');
+
+    // Update profile, address, and photo routes
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile/address', [ProfileController::class, 'updateAddress'])->name('profile.updateAddress');  
+    Route::post('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.updatePhoto');
+    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+});

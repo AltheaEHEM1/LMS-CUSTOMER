@@ -16,7 +16,7 @@
         <div class="flex flex-col lg:flex-row w-full space-y-8 lg:space-y-0 lg:space-x-8 mt-5">
             <!-- Book Image -->
             <div class="flex-shrink-0 w-40 mx-auto lg:w-48 lg:mx-0 mt-20">
-            <img src="./images/noli.jpg" alt="Noli Me Tangere" class="w-full h-72 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="w-full h-72 rounded-lg shadow-md">
             </div>
 
             <!-- Book Information and Reserve Button -->
