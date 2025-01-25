@@ -42,35 +42,35 @@ class RegistrationController extends BaseController
 
     // Step 1: Handle form submission for step 1
    public function handleStepOne(Request $request)
-{
-    // Validate the incoming request data
-    $validatedData = $request->validate([
-        'firstName' => 'required|string|max:255',
-        'middleInitial' => 'nullable|string|max:255',
-        'lastName' => 'required|string|max:255',
-        'dobMonth' => 'required|string|max:255',
-        'dobDay' => 'required|string|max:255',
-        'dobYear' => 'required|string|max:255',
-        'gender' => 'required|string|max:255',
-        'addressHouse' => 'required|string|max:255',
-        'addressStreet' => 'required|string|max:255',
-        'addressBarangay' => 'required|string|max:255',
-        'addressCity' => 'required|string|max:255',
-        'addressProvince' => 'required|string|max:255',
-        'addressZip' => 'required|string|max:4',
-    ]);
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'firstName' => 'required|string|max:255',
+            'middleInitial' => 'nullable|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'dobMonth' => 'required|string|max:255',
+            'dobDay' => 'required|string|max:255',
+            'dobYear' => 'required|string|max:255',
+            'gender' => 'required|string|max:255',
+            'addressHouse' => 'required|string|max:255',
+            'addressStreet' => 'required|string|max:255',
+            'addressBarangay' => 'required|string|max:255',
+            'addressCity' => 'required|string|max:255',
+            'addressProvince' => 'required|string|max:255',
+            'addressZip' => 'required|string|max:4',
+        ]);
 
-    $request->session()->forget('step_one_data');
+        $request->session()->forget('step_one_data');
 
-    // Store the data in the session
-    $request->session()->put('step_one_data', $validatedData);
+        // Store the data in the session
+        $request->session()->put('step_one_data', $validatedData);
 
-    // Debugging: Log session data to check if firstName is there
-    \Log::debug('Step 1 Data:', $validatedData);
+        // Debugging: Log session data to check if firstName is there
+        \Log::debug('Step 1 Data:', $validatedData);
 
-    // Redirect to the second step
-    return redirect()->route('register.step.two');
-}
+        // Redirect to the second step
+        return redirect()->route('register.step.two');
+    }
 
 
     // Step 2: Show the form for step 2 (confirm the data)
