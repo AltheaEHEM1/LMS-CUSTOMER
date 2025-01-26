@@ -26,8 +26,7 @@ class User extends Authenticatable
         'addressZip',
         'username',
         'email',
-        'password', 
-        'photo' ,
+        'password',
     ];
 
     protected $hidden = [
@@ -39,6 +38,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
     public function sessions()
     {
         return $this->morphMany(Session::class, 'user');

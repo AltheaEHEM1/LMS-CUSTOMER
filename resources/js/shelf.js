@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
         row.addEventListener('click', (event) => {
             // Prevent redirection if the checkbox is clicked
             if (!event.target.closest('input[type="checkbox"]')) {
-                window.location.href = '/Hbookdetailswithreserve';
+                const bookId = row.getAttribute('data-book-id');
+                window.location.href = '/Hbookdetailswithreserve/' + bookId;
             }
         });
     });

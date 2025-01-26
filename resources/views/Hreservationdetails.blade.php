@@ -14,8 +14,8 @@
 
         <!-- Book Details -->
         <div class="flex-shrink-0 w-40 mx-auto items-center text-center lg:w-48 lg:mx-0">
-            <img src="https://via.placeholder.com/150" alt="Noli Me Tangere" class="w-full h-72 rounded-lg shadow-md">
-            <h2 class="text-xl font-bold mt-4">Noli Me Tangere</h2>
+            <img src="{{ $book->photo }}" alt="{{ $book->title }}" class="w-full h-72 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mt-4">{{ $book->title }}</h2>
             <p class="text-gray-600">Rizal, Jose P.</p>
         </div>
 
@@ -25,27 +25,27 @@
             <div class="mt-6 space-y-2">
                 <div>
                     <p class="font-semibold inline mr-2">ISBN:</p>
-                    <p class="inline">9710807528</p>
+                    <p class="inline">{{ $book->isbn }}</p>
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Publisher:</p>
-                    <p class="inline">Mandaluyong City: National Book Store</p>
+                    <p class="inline">{{ $book->publisher }}</p>
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Item Type:</p>
-                    <p class="inline">Book</p>
+                    <p class="inline">{{ $book->media_type }}</p>
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Edition:</p>
-                    <p class="inline">Fifth Edition</p>
+                    <p class="inline">{{ $book->edition }}</p>
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Description:</p>
-                    <p class="inline"> xxii, 381 pages, 1 unnumbered leaf of plate</p>
+                    <p class="inline">{{ $book->description }}</p>
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Loan Period:</p>
-                    <p class="inline"> 3 days</p>
+                    <p class="inline">{{ $book->loan_period }}</p>
                 </div>
             </div>
         </div>
@@ -56,11 +56,11 @@
             <div class="space-y-2">
                 <div>
                     <p class="font-semibold inline mr-2">Member ID:</p>
-                    <p class="inline">12345678910</p>
+                    <p class="inline">{{ $user->id }}</p>
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Name:</p>
-                    <p class="inline">Althea Amor J. Asis</p>
+                    <p class="inline">{{ $user->firstName }} {{ $user->middleInitial }} {{ $user->lastName }}</p>
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Phone no.:</p>
@@ -68,23 +68,24 @@
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Email Address:</p>
-                    <p class="inline">altheaamorjasis@gmail.com</p>
+                    <p class="inline">{{ $user->email }}</p>
                 </div>
 
                 <!-- Borrowing Details -->
                 <div class="mt-6 space-y-2">
                     <h3 class="font-semibold text-[#011b33]">Borrowing Details</h3>
-                    <p class="text-sm text-gray-600"><strong>Book Stock:</strong> 4</p>
+                    <p class="text-sm text-gray-600"><strong>Book Stock:</strong> {{ $book->stock }}</p>
                     <p class="text-sm text-gray-600"><strong>Status:</strong> In Library</p>
                     <div>
+                        <input type="hidden" name="book_id" value="{{ $book->id }}">
                         <label for="borrow-date" class="block text-sm text-gray-600">Requested Borrow Date</label>
-                        <input type="date" id="borrow-date" class="w-full mt-1 p-2 border rounded-md text-gray-600">
+                        <input type="date" id="borrow-date" name="reservation_date" class="w-full mt-1 p-2 border rounded-md text-gray-600">
                     </div>
                 </div>
 
             </div>
             <div class="flex justify-center space-x-4 mt-8">
-                <button class="px-4 py-2 bg-[#028ABE] text-white rounded-md hover:bg-[#046f9c]">Reserve</button>
+                <button type="submit" id="reserve-button" class="px-4 py-2 bg-[#028ABE] text-white rounded-md hover:bg-[#046f9c]">Reserve</button>
             </div>
         </div>
     </div>
@@ -92,4 +93,46 @@
 
 @include('CFooter')
 </body>
+<script>
+    document.getElementById('reserve-button').addEventListener('click', function () {
+        const bookId = document.querySelector('input[name="book_id"]').value;
+        const reservationDate = document.querySelector('input[name="reservation_date"]').value;
+
+        fetch('/reserve', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                book_id: bookId,
+                reservation_date: reservationDate
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: data.message,
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: data.message,
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            });
+        });
+    });
+</script>
 </html>

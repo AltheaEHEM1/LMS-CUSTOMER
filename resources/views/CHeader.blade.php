@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./images/tabicon.png">
+    <link rel="shortcut icon" href="{{ asset('images/tabicon.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite('resources/js/Cheader.js')
     <title>Novella</title>
 
@@ -49,7 +50,7 @@
         <nav class="flex items-center justify-between px-8 py-4 bg-[#011b33] sticky top-0 z-50">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
-                        <img src="./images/logo_login_headerC.png" alt="library logo" class="w-[135px]">
+                        <img src="{{ asset('images/logo_login_headerC.png') }}" alt="library logo" class="w-[135px]">
                 </div>
 
                 @auth
@@ -68,15 +69,12 @@
                                 <div class="relative">
                                         <i id="notificationIcon" class="fa fa-bell text-white text-xl hover:text-[#028ABE] cursor-pointer"></i>
                                         <!-- Notification Badge -->
-                                        <span id="notificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-                                        5
+                                        <span id="notificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5 hidden">
+                                        0
                                         </span>
                                         <!-- Notification Box -->
                                         <div id="notificationBox" class="absolute top-10 right-0 bg-white border border-gray-300 rounded-lg shadow-lg w-72 max-h-96 overflow-y-auto hidden z-50">
-                                        <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">New message received</div>
-                                        <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Your book is ready for pickup</div>
-                                        <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Reminder: Return due tomorrow</div>
-                                        <div class="p-4 text-center text-gray-500">No more notifications</div>
+        
                                         </div>
                                 </div>
 
@@ -95,13 +93,13 @@
                                 <!-- Notification Icon -->
                                 <div class="relative">
                                         <i id="mobileNotificationIcon" class="fa fa-bell text-white text-xl hover:text-[#028ABE] cursor-pointer"></i>
-                                        <span id="mobileNotificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+                                        <span id="mobileNotificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5 hidden">
                                         5
                                         </span>
                                         <div id="mobileNotificationBox" class="absolute top-10 right-0 bg-white border border-gray-300 rounded-lg shadow-lg w-64 max-h-96 overflow-y-auto hidden z-50">
-                                        <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">New message received</div>
+                                        <!-- <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">New message received</div>
                                         <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Your book is ready for pickup</div>
-                                        <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Reminder: Return due tomorrow</div>
+                                        <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Reminder: Return due tomorrow</div> -->
                                         <div class="p-4 text-center text-gray-500">No more notifications</div>
                                         </div>
                                 </div>
@@ -217,6 +215,42 @@
                         modal.classList.remove('flex'); // Remove the flex class
                 }
                 }
+
+                document.addEventListener('DOMContentLoaded', function () {
+                        const notificationBadge = document.getElementById('notificationBadge');
+                        const mobileNotificationBadge = document.getElementById('mobileNotificationBadge');
+
+                        function checkNotifications() {
+                                fetch('/notif-checker', {
+                                method: 'GET',
+                                headers: {
+                                        'Content-Type': 'application/json',
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                },
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                        if (data.success) {
+                                                if (data.unread_count > 0) {
+                                                notificationBadge.textContent = data.unread_count;
+                                                notificationBadge.classList.remove('hidden'); 
+                                                mobileNotificationBadge.textContent = data.unread_count;
+                                                mobileNotificationBadge.classList.remove('hidden'); 
+                                                } else {
+                                                notificationBadge.classList.add('hidden'); 
+                                                mobileNotificationBadge.classList.add('hidden'); 
+                                                }
+                                        }
+                                })
+                                .catch(error => {
+                                console.error('Error checking notifications:', error.message);
+                                });
+                        }
+
+                        checkNotifications()
+
+                        setInterval(checkNotifications, 5000);
+                });
             </script>
         </div>
 

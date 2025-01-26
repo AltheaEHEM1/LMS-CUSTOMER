@@ -65,7 +65,7 @@
                 } else {
                     input.classList.remove('border-red-500');
                     if (errorMessage) {
-                        input.value = input.value.toUpperCase();
+                        input.value = input.value
                         errorMessage.textContent = '';
                         errorMessage.classList.add('hidden');
                     }
@@ -80,7 +80,7 @@
         const input = document.getElementById(field);
         if (input) {
             input.addEventListener('input', function () {
-                input.value = input.value.toUpperCase(); // Convert to uppercase
+                input.value = input.value // Convert to uppercase
             });
         }
     });

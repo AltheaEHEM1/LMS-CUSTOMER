@@ -3,7 +3,7 @@
         <!-- Left Section: Logo and Contact Information -->
         <div class="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-9">
                 <!-- Logo -->
-                <img src="./images/logo_login_headerC.png" alt="library logo" class="w-32 md:w-[135px]">
+                <img src="{{ asset('images/logo_login_headerC.png') }}" alt="library logo" class="w-32 md:w-[135px]">
                 <!-- Contact Info -->
                 <div class="text-center md:text-left">
                 <p>Don Fabian St. Commonwealth</p>

@@ -29,47 +29,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-center bg-gray-100">
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">The 48 Laws of Power</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">Robert Greene</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 7</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 7</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 10</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">
-                                <span class="bg-orange-200 font-semibold text-orange-800 px-2 py-1 rounded-md">Pending</span>
-                            </td>
-                        </tr>
-                        <tr class="text-center bg-gray-100">
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">Noli Me Tangere</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">Jose P. Rizal</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 7</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 7</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 10</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">
-                                <span class="bg-blue-200 font-semibold text-blue-800 px-2 py-1 rounded-md">Confirmed</span>
-                            </td>
-                        </tr>
-                        <tr class="text-center bg-gray-100">
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">ABNKKBSNPLAko?!</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">Bob Ong</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 7</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 7</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 10</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">
-                                <span class="bg-green-200 font-semibold text-green-800 px-2 py-1 rounded-md">Approved</span>
-                            </td>
-                        </tr>
-                        <tr class="text-center bg-gray-100">
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">The Woman Who Had Two Navels and Tales of the Tropical Gothic</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">Nick Joaquin</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 7</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 7</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">September 10</td>
-                            <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">
-                                <span class="bg-red-200 font-semibold text-red-800 px-2 py-1 rounded-md">Denied</span>
-                            </td>
-                        </tr>
-                        <!-- Add more rows as necessary -->
+                        @if($reservations->isEmpty())
+                            <tr>
+                                <td colspan="6" class="text-center py-4 text-gray-500">No Books</td>
+                            </tr>
+                        @else
+                            @foreach($reservations as $reservation)
+                                <tr class="text-center bg-gray-100">
+                                    <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">{{ $reservation->title }}</td>
+                                    <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">{{ $reservation->author }}</td>
+                                    <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">{{ $reservation->reservation_date }}</td>
+                                    <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">{{ $reservation->pickup_date ?? '-' }}</td>
+                                    <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">{{ $reservation->due_date ?? '-' }}</td>
+                                    <td class="border bg-[#F4F7FF] px-2 sm:px-4 py-2">
+                                        @if($reservation->borrow_status == 'pending')
+                                            <span class="bg-orange-200 font-semibold text-orange-800 px-2 py-1 rounded-md">Pending</span>
+                                        @elseif($reservation->borrow_status == 'confirmed')
+                                            <span class="bg-blue-200 font-semibold text-blue-800 px-2 py-1 rounded-md">Confirmed</span>
+                                        @elseif($reservation->borrow_status == 'approved')
+                                            <span class="bg-green-200 font-semibold text-green-800 px-2 py-1 rounded-md">Approved</span>
+                                        @elseif($reservation->borrow_status == 'denied')
+                                            <span class="bg-red-200 font-semibold text-red-800 px-2 py-1 rounded-md">Denied</span>
+                                        @else
+                                            <span class="bg-gray-200 font-semibold text-gray-800 px-2 py-1 rounded-md">Unknown Status</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -88,4 +75,46 @@
 
 @include('CFooter')
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.querySelector('input[type="text"]');
+    const tableRows = document.querySelectorAll('tbody tr');
+
+    searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        tableRows.forEach(row => {
+            const rowText = row.textContent.toLowerCase();
+
+            if (searchTerm === '') {
+                row.style.display = '';
+            } 
+            else if (rowText.includes(searchTerm)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        const visibleRows = Array.from(tableRows).filter(row => row.style.display !== 'none');
+        const noResultsRow = document.querySelector('.no-results-row');
+
+        if (visibleRows.length === 0 && searchTerm !== '') {
+            if (!noResultsRow) {
+                const tbody = document.querySelector('tbody');
+                const newRow = document.createElement('tr');
+                newRow.classList.add('no-results-row');
+                newRow.innerHTML = `
+                    <td colspan="6" class="text-center py-4 text-gray-500">No books matched the search.</td>
+                `;
+                tbody.appendChild(newRow);
+            }
+        } else {
+            if (noResultsRow) {
+                noResultsRow.remove();
+            }
+        }
+    });
+});
+</script>
 </html>

@@ -1,11 +1,10 @@
 @include('CHeader')
 @vite('resources/js/shelf.js')
 
-
 <main class="bg-[#E4ECFF] min-h-screen p-10 mb-0">
     <h1 class="text-2xl font-bold ml-20 text-gray-800">My Shelf</h1>
 
-    <!-- container-->
+    <!-- Container -->
     <div class="flex flex-col lg:flex-row justify-center items-center mt-6">
         
         <!-- Right Side: Search Box and Image -->
@@ -17,6 +16,7 @@
                 </svg>
                 <input 
                     type="text" 
+                    id="searchInput" 
                     placeholder="Search item" 
                     class="bg-transparent placeholder-gray-300 text-white focus:outline-none text-sm w-full"
                 />
@@ -25,10 +25,10 @@
             <!-- Select All and Trash -->
             <div class="flex justify-between items-center mb-4">
                 <label class="flex items-center text-gray-800">
-                    <input type="checkbox" class="form-checkbox mr-2" />
-                    Select All (10)
+                    <input type="checkbox" id="selectAllCheckbox" class="form-checkbox mr-2" />
+                    Select All
                 </label>
-                <button class="text-gray-800 hover:text-red-600 transition-colors">
+                <button id="deleteButton" class="text-gray-800 hover:text-red-600 transition-colors">
                     <svg class="w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M9 3V1h6v2h5v2H4V3h5zm2 6v9h2V9h-2zm4 0v9h2V9h-2zm-8 0v9h2V9H7z"/>
                     </svg>
@@ -50,41 +50,130 @@
                             <th class="border border-gray-300 px-4 py-2 hidden lg:table-cell">Item Type</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="bg-white items-center text-center table-row hover:bg-gray-100">
+                    <tbody id="shelfTableBody">
+                        @foreach($bookmarks as $bookmark)
+                        <tr class="bg-white items-center text-center table-row hover:bg-gray-100" data-book-id="{{ $bookmark->book_id }}">
                             <td class="px-4 py-2">
-                                <input type="checkbox" class="form-checkbox w-4 h-4" />
+                                <input type="checkbox" class="form-checkbox w-4 h-4 bookmarkCheckbox" value="{{ $bookmark->bookmark_id }}" />
                             </td>
                             <td class="px-4 py-2">
-                                <img src="https://via.placeholder.com/100" alt="Noli Me Tangere" 
+                                <img src="{{ $bookmark->photo }}" alt="{{ $bookmark->title }}" 
                                     class="w-24 h-32 rounded-lg sm:w-32 sm:h-30 object-cover mx-auto">
                             </td>
-                            <td class="px-4 py-2">Noli Me Tangere</td>
-                            <td class="px-4 py-2 hidden lg:table-cell">978-1-933624-76-1</td>
-                            <td class="px-4 py-2 hidden lg:table-cell">Book</td>
+                            <td class="px-4 py-2">{{ $bookmark->title }}</td>
+                            <td class="px-4 py-2 hidden lg:table-cell">{{ $bookmark->isbn }}</td>
+                            <td class="px-4 py-2 hidden lg:table-cell">{{ $bookmark->media_type }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
-                
             </div>
         </div>
     </div>
 </main>
 
-{{-- to be removed --}}
-{{-- <script>
-    // Handle the row click for redirection
-    function handleRowClick(event) {
-        if (event.target.type !== 'checkbox') {
-            window.location = 'Hbookdetailswithreserve'; 
-        }
-    }
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const tableBody = document.getElementById('shelfTableBody');
+    const rows = tableBody.getElementsByTagName('tr');
 
-    // Prevent the row click event when the checkbox is clicked
-    function handleCheckboxClick(event) {
-        event.stopPropagation(); // Prevent the row click from triggering
-    }
-</script> --}}
+    searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+
+        for (let row of rows) {
+            const title = row.cells[2].textContent.toLowerCase(); 
+            const isbn = row.cells[3].textContent.toLowerCase(); 
+            const mediaType = row.cells[4].textContent.toLowerCase(); 
+
+            if (title.includes(searchTerm) || isbn.includes(searchTerm) || mediaType.includes(searchTerm)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    const checkboxes = document.querySelectorAll('.bookmarkCheckbox');
+
+    selectAllCheckbox.addEventListener('change', function () {
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+    });
+
+    const deleteButton = document.getElementById('deleteButton');
+
+    deleteButton.addEventListener('click', function () {
+        const selectedBookmarks = [];
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedBookmarks.push(checkbox.value);
+            }
+        });
+
+        if (selectedBookmarks.length === 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'No Selection',
+                text: 'Please select at least one bookmark to unbookmark.',
+            });
+            return;
+        }
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You are about to unbookmark the selected books.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete them!',
+            cancelButtonText: 'Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch('/unbookmark', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        bookmark_ids: selectedBookmarks
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Unbookmarked!',
+                            text: 'Unbookmarked successfully!',
+                        }).then(() => {
+                            window.location.reload(); 
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Failed',
+                            text: 'Failed to unbookmark.',
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong. Please try again.',
+                    });
+                });
+            }
+        });
+    });
+});
+</script>
 
 @include('CFooter')
 

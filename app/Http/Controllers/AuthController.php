@@ -19,7 +19,10 @@ class AuthController extends BaseController
         // Attempt login
         if (Auth::attempt($credentials)) {
             // Successful login
-            return redirect()->route('HOMElandingpage_customer')->with('success', 'Logged in successfully!');
+            $user = Auth::user();
+            session(['user_id' => $user->id]);
+
+            return redirect('/')->with('success', 'Logged in successfully!');
         }
 
         // Failed login
@@ -35,6 +38,6 @@ class AuthController extends BaseController
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/HOMElandingpage_customer')->with('message', 'Logged out successfully.');
+        return redirect('/')->with('message', 'Logged out successfully.');
     }
 }

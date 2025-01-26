@@ -12,12 +12,12 @@
 <!-- SEARCH BAR -->
 <div class=" mx-auto bg-[#E4ECFF] p-8 shadow-md flex items-center justify-center space-x-3">
         <!-- Dropdown -->
-        <select class="p-2 border bg-[#E4ECFF] border-black-400 rounded-lg text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <!-- <select class="p-2 border bg-[#E4ECFF] border-black-400 rounded-lg text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <option value="" disabled selected>Keyword</option>
                 <option value="title">Title</option>
                 <option value="author">Author</option>
                 <option value="category">Category</option>
-        </select>
+        </select> -->
 
         <!-- Search Icon and Input -->
         <div class="relative flex items-center w-1/2">
@@ -31,29 +31,70 @@
         </div>
 
         <!-- Search Button -->
-        <button class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
+        <!-- <button class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
                 Search
-        </button>
+        </button> -->
 </div>
 
 <!-- Categories Section -->
 <div class="mx-auto bg-[#E4ECFF] p-10 rounded-lg shadow-md">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <!-- Category Cards-->
-                <div class="bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300">
-                        <a href="/Hspecific_category" class="block">
-                                <img 
-                                src="/images/300x200.png" 
-                                alt="[category img]" 
-                                class="w-full h-45 object-cover rounded-t-lg"
-                                >
-                                <div class="p-1 text-center font-semibold">[category name]</div>
-                        </a>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        @if($categories->isEmpty())
+            <div class="col-span-full text-center py-4 text-gray-500">No categories.</div>
+        @else
+            @foreach($categories as $category)
+                <div class="category-card bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300">
+                    <a href="/Hspecific_category/{{ $category->category }}" class="block">
+                        <img 
+                            src="/images/300x200.png" 
+                            alt="[category img]" 
+                            class="w-full h-45 object-cover rounded-t-lg"
+                        >
+                        <div class="p-1 text-center font-semibold">{{ $category->category }}</div>
+                    </a>
                 </div>
-        </div>
+            @endforeach
+        @endif
+    </div>
 </div>
 
 @include('CFooter')
 
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.querySelector('input[type="text"]');
+    const categoryCards = document.querySelectorAll('.category-card');
+
+    searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        categoryCards.forEach(card => {
+            const cardText = card.textContent.toLowerCase();
+            if (cardText.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        const visibleCards = Array.from(categoryCards).filter(card => card.style.display !== 'none');
+        const noResultsMessage = document.querySelector('.no-results-message');
+
+        if (visibleCards.length === 0 && searchTerm !== '') {
+            if (!noResultsMessage) {
+                const categoriesSection = document.querySelector('.grid');
+                const newMessage = document.createElement('div');
+                newMessage.classList.add('no-results-message', 'col-span-full', 'text-center', 'py-4', 'text-gray-500');
+                newMessage.textContent = 'No categories matched the search.';
+                categoriesSection.appendChild(newMessage);
+            }
+        } else {
+            if (noResultsMessage) {
+                noResultsMessage.remove();
+            }
+        }
+    });
+});
+</script>
 </html>
