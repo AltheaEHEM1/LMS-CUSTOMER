@@ -1,0 +1,5 @@
+open terminal
+cd public
+rm storage
+open new terminal
+php artisan storage:link
