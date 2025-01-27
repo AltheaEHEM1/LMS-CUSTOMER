@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/tabicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    @vite('resources/js/Csignup.js')
+
     <title>Novella</title>
 
 </head>
@@ -48,12 +49,6 @@
                     <p class="text-gray-500 font-medium text-xs text-center">Novella Account</p>
                 </div>
 
-                <div class="hidden lg:block lg:w-1/3 h-[2px] bg-gray-300"></div>
-                <div class="flex flex-col items-center space-y-1">
-                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 text-gray-500 text-sm">3</div>
-                    <p class="text-[#011B33] font-semibold text-xs">Third Step</p>
-                    <p class="text-gray-500 font-medium text-xs text-center">Account Information</p>
-                </div>
             </div>
 
             <p class="text-[#011B33] font-semibold text-lg lg:text-xl mb-6">Personal Information</p>
@@ -119,91 +114,14 @@
                     <button type="submit" class="w-full py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition">Next Step</button>
 
                 <!-- General Error -->
-                <div id="formErrorMessage" class="text-red-500 text-sm hidden">
-                    Please fill out all fields.
+                <div id="formErrorMessageContainer" class="h-5">
+                    <span id="formErrorMessage" class="text-red-500 text-sm hidden">
+                        Please fill out all fields.
+                    </span>
                 </div>
             </form>
         </div>
     </section>
-
-    <script>
-        // This code serves as a check if clicks the button "Next Step" without filling up the required fields.
-        document.querySelector('form').addEventListener('submit', function(event) {
-                const requiredFields = [
-                    'firstName', 
-                    'middleInitial', 
-                    'lastName', 
-                    'dobMonth', 
-                    'dobDay', 
-                    'dobYear', 
-                    'gender', 
-                    'addressHouse', 
-                    'addressStreet', 
-                    'addressBarangay', 
-                    'addressCity', 
-                    'addressProvince', 
-                    'addressZip'
-                ];
-                let isValid = true;
-
-                requiredFields.forEach(function(field) {
-                    const input = document.getElementById(field);
-                    if (input && !input.value.trim()) {
-                        isValid = false;
-                        input.classList.add('border-red-500'); // Highlight the field
-                    } else if (input) {
-                        input.classList.remove('border-red-500'); // Remove highlight if valid
-                    }
-                });
-
-                if (!isValid) {
-                    event.preventDefault();
-                    const errorMessage = document.getElementById('formErrorMessage');
-                    if (errorMessage) {
-                        errorMessage.textContent = 'Please fill in all required fields.';
-                        errorMessage.classList.remove('hidden');
-                    }
-                } else {
-                    const errorMessage = document.getElementById('formErrorMessage');
-                    if (errorMessage) {
-                        errorMessage.textContent = '';
-                        errorMessage.classList.add('hidden');
-                    }
-                }
-            });
-
-
-        // This code serves as a check if the user put numbers and special characters in name, middle initial, and last name. 
-        const nameFields = ['firstName', 'middleInitial', 'lastName'];
-        const nameRegex = /^[a-zA-Z]+$/;
-
-        nameFields.forEach(function(field) {
-            const input = document.getElementById(field);
-            if (input) {
-            input.addEventListener('input', function() {
-                if (!nameRegex.test(input.value)) {
-                input.classList.add('border-red-500');
-                const errorMessage = document.getElementById('formErrorMessage');
-                if (errorMessage) {
-                    errorMessage.textContent = 'Names cannot contain numbers or special characters.';
-                    errorMessage.classList.remove('hidden');
-                }
-                } else {
-                input.classList.remove('border-red-500');
-                const errorMessage = document.getElementById('formErrorMessage');
-                if (errorMessage) {
-                    errorMessage.textContent = '';
-                    errorMessage.classList.add('hidden');
-                }
-                }
-            });
-            }
-        });
-
-
-
-
-    </script>
 
 </body>
 </html>

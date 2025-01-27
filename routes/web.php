@@ -1,59 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\authController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\NotificationController;
 //////////////////////////////////////////////////////////
-//if you want to run the log in of employee
-// Route::get('/', function () {
-//     return view('login_employee');
-// });
 
-// Route::get('/DASHBORDandingpage_employee', function () {
-//     return view('DASHBORDandingpage_employee'); 
-// });
-
-// Route::get('/EMPLOYEE', function () {
-//     return view('EMPLOYEE'); 
-// });
-
-// Route::get('/LIBRARIAN', function () {
-//     return view('LIBRARIAN'); 
-// });
-
-// Route::get('/CATALOGER', function () {
-//     return view('CATALOGER'); 
-// });
-
-// Route::get('/MEMBERS', function () {
-//     return view('MEMBERS'); 
-// });
-
-// Route::get('/CIRCULATION', function () {
-//     return view('CIRCULATION'); 
-// });
-
-// Route::get('/CIRCULATION_REPORTS', function () {
-//     return view('CIRCULATION_REPORTS'); 
-// });
-
-// Route::get('/MEMBER_REPORTS', function () {
-//     return view('MEMBER_REPORTS'); 
-// });
-
-// Route::get('/OVERDUE_REPORTS', function () {
-//     return view('OVERDUE_REPORTS'); 
-// });
-
-// Route::get('/CATALOG', function () {
-//     return view('CATALOG'); 
-// });
-
-// Route::get('/CATALOG_REPORTS', function () {
-//     return view('CATALOG_REPORTS'); 
-// });
-
-///END// itong buong block sa taas i run / adminnn
-////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -72,13 +29,11 @@ use App\Http\Controllers\authController;
 ////////////////////////////////////////////////////////////////////////////
 //if you want to run the log in of customer
 //start ito
-Route::get('/', function () {
-    return view('login_customer');
-});
 
-Route::get('/homelandingpage_customer', function () {
-     return view('homelandingpage_customer');
-});
+// Route::get('/', function () {
+//      return view('HOMElandingpage_customer');
+// });
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/signup', function () {
     return view('signup');
@@ -108,9 +63,10 @@ Route::get('/login_customer', function () {
     return view('login_customer');
 });
 
-Route::get('/Hspecific_category', function () {
-        return view('Hspecific_category');
-    });
+// Route::get('/Hspecific_category', function () {
+//         return view('Hspecific_category');
+//     });
+Route::get('/Hspecific_category/{category}', [HomeController::class, 'getBooksByCategory'])->name('home.category');
 
 // Route::get('/HOMElandingpage_customer', function () {
 //         return view('HOMElandingpage_customer')->name('HOMElandingpage_customer');
@@ -119,26 +75,35 @@ Route::get('/Hspecific_category', function () {
 // Route::get('/RESERVATIONreservation-page', function () {
 //         return view('RESERVATIONreservation-page');
 //     });
+    Route::get('/RESERVATIONreservation-page', [ReservationController::class, 'index'])->name('reservation');
 
-Route::get('/Hbookdetailswithreserve', function () {
-        return view('Hbookdetailswithreserve');
-    });
+// Route::get('/Hbookdetailswithreserve', function () {
+//         return view('Hbookdetailswithreserve');
+//     });
+Route::get('/Hbookdetailswithreserve/{id}', [HomeController::class, 'getBookById'])->name('home.book');
 
 Route::get('/ABOUTUSpage', function () {
         return view('ABOUTUSpage');
     });
     
-Route::get('/SHELFpage', function () {
-        return view('SHELFpage');
-    });
+// Route::get('/SHELFpage', function () {
+//         return view('SHELFpage');
+//     });
+Route::get('/SHELFpage', [BookmarkController::class, 'index'])->name('bookmark');
 
 Route::get('/PROFILEpage', function () {
         return view('PROFILEpage');
     });
 
-Route::get('/ Hreservationdetails', function () {
-        return view(' Hreservationdetails');
-    });
+// Route::get('/ Hreservationdetails', function () {
+//         return view(' Hreservationdetails');
+//     });
+Route::get('/Hreservationdetails/{id}', [HomeController::class, 'getBookReserveById'])->name('home.reservation');
+
+Route::post('/reserve', [ReservationController::class, 'reserveBook'])->name('reserve.book');
+
+Route::post('/bookmark', [BookmarkController::class, 'bookmarkBook'])->name('bookmark.book');
+Route::post('/unbookmark', [BookmarkController::class, 'unbookmarkBook'])->name('unbookmark.book');
 
 use App\Http\Controllers\RegistrationController;
 
@@ -147,8 +112,38 @@ Route::post('/register-step-one', [RegistrationController::class, 'handleStepOne
 Route::get('/register-step-two', [RegistrationController::class, 'showStepTwo'])->name('register.step.two');
 Route::post('/register', [RegistrationController::class, 'register'])->name('register');
 
-Route::get('/HOMElandingpage_customer', function () {
-     return view('HOMElandingpage_customer');
- })->name('HOMElandingpage_customer');
-///END// itong buong block sa taas i run / customer
-////////////////////////////////////////////////////////////////////////////
+// Route::get('/HOMElandingpage_customer', function () {
+//      return view('HOMElandingpage_customer');
+//  })->name('HOMElandingpage_customer');
+Route::get('/HOMElandingpage_customer', [HomeController::class, 'index'])->name('home');
+
+ // Display the Login Page
+Route::get('/login', function () {
+    return view('login_customer');
+})->name('login.form');
+
+// Handle Login Submission
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/user', [RegistrationController::class, 'getUser']);
+
+
+Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profile/update-photo', [ProfileController::class, 'updatePhoto'])->name('profile.updatePhoto');
+    Route::post('/profile/update-info', [ProfileController::class, 'updateInfo'])->name('profile.updateInfo');
+    Route::post('/profile/update-address', [ProfileController::class, 'updateAddress'])->name('profile.updateAddress');
+});
+
+// Password Reset Routes
+// Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
+Route::get('reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+// Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
+Route::post('/forgot-password', [ResetPasswordController::class, 'sendResetLink']);
+Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword'])->name('password.reset');
+
+//Notifications
+Route::get('/notif-checker', [NotificationController::class, 'check_notif'])->name('notif.checker');
+Route::get('/notifications', [NotificationController::class, 'get_notif'])->name('notifications.get');
+Route::get('/mark-as-read', [NotificationController::class, 'read_notif'])->name('notifications.read');

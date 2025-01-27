@@ -1,172 +1,308 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./images/tabicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <title>Novella</title>
+@include('CHeader')
+@vite('resources/js/profile.js')
 
-    <style>
-        html, body {
-            overflow-x: hidden;  /* Prevent horizontal scrolling */
-            width: 100%;          /* Ensure the body takes full width */
-            height: 100%;         /* Make sure the body takes full height */
-        }
-
-        section {
-            overflow-x: hidden;  /* Prevent overflow for section if needed */
-        }
-    </style>
-</head>
-
-<body>
-        <nav class="flex items-center justify-between px-8 py-4 bg-[#011b33] sticky top-0 z-50">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                        <img src="./images/logo_login_headerC.png" alt="library logo" class="w-[135px]">
-                </div>
-
-                <!-- Centered Navigation Links -->
-                <ul class="flex space-x-12 hidden md:flex">
-                        <li><a href="/HOMElandingpage_customer" class="text-white hover:text-[#028ABE] flex items-center" ><i class="fa fa-home mr-2"></i> Home</a></li>
-                        <li><a href="/RESERVATIONreservation-page" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-calendar-alt mr-2"></i> Reservation</a></li>
-                        <li><a href="/ABOUTUSpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-info-circle mr-2"></i> About Us</a></li>
-                </ul>
-
-                <!-- Right-aligned Shelf and My Account --->
-                <div class="flex items-center space-x-12 hidden md:flex">
-                        <a href="/SHELFpage" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-book mr-2"></i> Shelf</a>
-                       
-                        <!-- Notification Icon -->
-                        <div class="relative">
-                                <i id="notificationIcon" class="fa fa-bell text-white text-xl hover:text-[#028ABE] cursor-pointer"></i>
-                                <!-- Notification Badge -->
-                                <span id="notificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-                                5
-                                </span>
-                                <!-- Notification Box -->
-                                <div id="notificationBox" class="absolute top-10 right-0 bg-white border border-gray-300 rounded-lg shadow-lg w-72 max-h-96 overflow-y-auto hidden z-50">
-                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">New message received</div>
-                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Your book is ready for pickup</div>
-                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Reminder: Return due tomorrow</div>
-                                <div class="p-4 text-center text-gray-500">No more notifications</div>
-                                </div>
+<main class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
+        <!-- Profile Section -->
+        <div>
+                <!-- Profile Header -->
+                <div class="bg-white shadow-md rounded-lg p-10 flex items-center space-x-4 mb-6">
+                        <!-- Profile Image -->
+                        <div class="w-20 h-20 bg-gray-300 rounded-full overflow-hidden">
+                            @if(Auth::user()->photo_path)
+                                <img src="{{ asset('storage/' . Auth::user()->photo_path) }}" alt="Profile Photo" class="w-full h-full object-cover">
+                            @endif
                         </div>
-
-                        <!-- My Account with Dropdown -->
-                        <div class="relative">
-                                <button id="dropdownToggle" class="text-white hover:text-[#028ABE] flex items-center"><i class="fa fa-user mr-2"></i> My Account</button>
-                                <ul id="dropdownMenu" class="absolute hidden bg-[#011b33] text-white rounded-md shadow-lg mt-2 py-2 w-48">
-                                        <li><a href="/PROFILEpage" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"><i class="fa fa-user-circle mr-2"></i> Profile</a></li>
-                                        <li><a href="#" class="block px-4 py-2 text-white hover:text-[#028ABE] dropdown-item flex items-center"> <i class="fa fa-sign-out-alt mr-2"></i> Log Out</a></li>
-                                </ul>
+                        <!-- Profile Name -->
+                        <div>
+                                <h2 class="text-lg font-bold text-[#011B33]">{{ Auth::user()->firstName }} {{ Auth::user()->middleInitial }}. {{ Auth::user()->lastName }}</h2>
+                                <p class="text-sm text-gray-500">Student</p>
                         </div>
+                        
+                <!-- Edit Buttons -->
+                <div class="ml-auto flex space-x-2">
+                        <button onclick="openModal('photoModal')" class="bg-[#011B33] text-white px-4 py-1 rounded text-sm">Edit Photo</button>
                 </div>
-
-                 <!-- Hamburger Menu Button and Icons (for mobile view) -->
-                 <div class="flex items-center md:hidden space-x-4">
-                        <!-- Notification Icon -->
-                        <div class="relative">
-                                <i id="mobileNotificationIcon" class="fa fa-bell text-white text-xl hover:text-[#028ABE] cursor-pointer"></i>
-                                <span id="mobileNotificationBadge" class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
-                                5
-                                </span>
-                                <div id="mobileNotificationBox" class="absolute top-10 right-0 bg-white border border-gray-300 rounded-lg shadow-lg w-64 max-h-96 overflow-y-auto hidden z-50">
-                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">New message received</div>
-                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Your book is ready for pickup</div>
-                                <div class="p-4 border-b border-gray-200 cursor-pointer hover:bg-gray-100">Reminder: Return due tomorrow</div>
-                                <div class="p-4 text-center text-gray-500">No more notifications</div>
-                                </div>
-                        </div>
-
-                        <button id="hamburgerMenu" class="text-white text-3xl">
-                                <i class="fas fa-bars"></i>
-                        </button>
-                </div>
-        </nav>
-
-
-        <!-- Mobile Menu (hidden by default) -->
-        <div id="mobileMenu" class="md:hidden fixed inset-0 bg-[#011b33] bg-opacity-90 z-50 flex flex-col items-center justify-center space-y-6 py-8 hidden">
-                <!-- Close Button (X) -->
-                <button id="closeMenu" class="absolute top-4 right-4 text-white text-3xl">
-                        <i class="fas fa-times"></i>
-                </button>
-
-                <!-- Navigation Links -->
-                <ul class="flex flex-col items-center space-y-6">
-                        <li><a href="/HOMElandingpage_customer" class="text-white text-2xl hover:text-[#028ABE]">Home</a></li>
-                        <li><a href="/RESERVATIONreservation-page"  class="text-white text-2xl hover:text-[#028ABE]">Reservation</a></li>
-                        <li><a href="/ABOUTUSpage" class="text-white text-2xl hover:text-[#028ABE]">About Us</a></li>
-                        <li><a href="/SHELFpage" class="text-white text-2xl hover:text-[#028ABE]">Shelf</a></li>
-                        <li><a href="/PROFILEpage" class="text-white text-2xl hover:text-[#028ABE]">Profile</a></li>
-                        <li><a href="#" class="text-white text-2xl hover:text-[#028ABE]">Log Out</a></li>
-                </ul>
         </div>
 
-        
-         <!-- Footer -->
-        <footer class="flex flex-col md:flex-row justify-between items-start md:items-center px-8 md:px-16 lg:px-60 py-8 bg-[#011b33] text-white text-sm space-y-6 md:space-y-0">
-                <!-- Left Section: Logo and Contact Information -->
-                <div class="flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-9">
-                        <!-- Logo -->
-                        <img src="./images/logo_login_headerC.png" alt="library logo" class="w-32 md:w-[135px]">
-                        <!-- Contact Info -->
-                        <div class="text-center md:text-left">
-                        <p>Don Fabian St. Commonwealth</p>
-                        <p>altheacamorasis@gmail.com</p>
-                        <p>+639123456789</p>
+        <!-- Content Section -->
+        <div class="flex flex-wrap gap-6">
+                <!-- Personal Information -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex-1">
+                        <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-bold text-[#011B33]">Personal Information</h3>
+                                <button onclick="openModal('profileModal')" class="bg-[#011B33] text-white px-4 py-1 rounded text-sm">Edit</button>
+                        </div>
+
+                        <div class="space-y-2 text-gray-500">
+                                <div class="flex justify-between">
+                                        <span>Name</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->firstName }}</span>
+                                </div>
+                                
+                                <div class="flex justify-between">
+                                        <span>Middle Initial</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->middleInitial }}</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                        <span>Last Name</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->lastName }}</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                        <span>Gender</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->gender }}</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                        <span>Date of Birth</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->dobMonth }} {{ Auth::user()->dobDay }}, {{ Auth::user()->dobYear }}</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                        <span>Email address</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->email }}</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                        <span>Username</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->username }}</span>
+                                </div>
                         </div>
                 </div>
 
-                <!-- Right Section: Rights Reserved -->
-                <div class="text-center md:text-right">
-                        <p>All rights reserved.</p>
+                <!-- Address Section -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex-1">
+                        <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-bold text-[#011B33]">Address</h3>
+                                <button onclick="openModal('addressModal')" class="bg-[#011B33] text-white px-4 py-1 rounded text-sm">Edit</button>
+                        </div>
+
+                        <div class="space-y-2 text-gray-500">
+                                <div class="flex justify-between">
+                                        <span>House no.</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->addressHouse }}</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                        <span>Street name</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->addressStreet }}</span>
+                                </div>
+                                
+                                <div class="flex justify-between">
+                                        <span>Barangay</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->addressBarangay }}</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                        <span>City or Municipality</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->addressCity }}</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                        <span>Province</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->addressProvince }}</span>
+                                </div>
+
+                                <div class="flex justify-between">
+                                        <span>Zip Code</span>
+                                        <span class="text-black font-semibold">{{ Auth::user()->addressZip }}</span>
+                                </div>
+                        </div>
                 </div>
-        </footer>
+        </div>
+
+       
+
+                
+        <!-- Photo Upload Modal -->
+        <div id="photoModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 items-center justify-center z-50">
+            <div class="bg-white p-6 rounded-lg w-full max-w-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold text-[#011B33]">Upload Photo</h3>
+                    <button onclick="closeModal('photoModal')" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form action="{{ route('profile.updatePhoto') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-4">
+                        <label for="profile_photo" class="block text-sm font-medium text-gray-700">Choose a Photo</label>
+                        <div class="mt-1 flex items-center">
+                            <input type="file" id="profile_photo" name="profile_photo" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" required>
+                        </div>
+                        @error('profile_photo')
+                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="flex justify-end space-x-2">
+                        <button type="button" onclick="closeModal('photoModal')" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                            Cancel
+                        </button>
+                        <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Upload Photo
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+                <!-- Profile Modal -->
+<div id="profileModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 items-center justify-center mt-20">
+    <div class="bg-white p-6 rounded-lg w-full max-w-md opacity-100">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-bold text-[#011B33]">Edit Personal Information</h3>
+        </div>
+
+        <form action="{{ route('profile.updateInfo') }}" method="POST">
+            @csrf
+
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="text-sm text-gray-600">First Name</label>
+                    <input type="text" name="firstName" value="{{ old('firstName', Auth::user()->first_name) }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                    @error('firstName') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                </div>
+
+                <div>
+                    <label class="text-sm text-gray-600">Middle Initial</label>
+                    <input type="text" name="middleInitial" value="{{ old('middleInitial', Auth::user()->middle_initial) }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800">
+                    @error('middleInitial') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                </div>
+
+                <div>
+                    <label class="text-sm text-gray-600">Last Name</label>
+                    <input type="text" name="lastName" value="{{ old('lastName', Auth::user()->last_name) }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                    @error('lastName') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                </div>
+
+                <div>
+                    <label class="text-sm text-gray-600">Username</label>
+                    <input type="text" name="username" value="{{ old('username', Auth::user()->username) }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                    @error('username') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="text-sm text-gray-600">Gender</label>
+                <select name="gender" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                    <option value="Male" {{ old('gender', Auth::user()->gender) == 'Male' ? 'selected' : '' }}>Male</option>
+                    <option value="Female" {{ old('gender', Auth::user()->gender) == 'Female' ? 'selected' : '' }}>Female</option>
+                </select>
+                @error('gender') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-4">
+                <div>
+                    <label class="text-sm text-gray-600">Month</label>
+                    <input type="text" name="dobMonth" value="{{ old('dobMonth', Auth::user()->dob_month) }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                    @error('dobMonth') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                </div>
+                <div>
+                    <label class="text-sm text-gray-600">Day</label>
+                    <input type="text" name="dobDay" value="{{ old('dobDay', Auth::user()->dob_day) }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                    @error('dobDay') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                </div>
+                <div>
+                    <label class="text-sm text-gray-600">Year</label>
+                    <input type="text" name="dobYear" value="{{ old('dobYear', Auth::user()->dob_year) }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                    @error('dobYear') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="text-sm text-gray-600">Email</label>
+                <input type="email" name="email" value="{{ old('email', Auth::user()->email) }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                @error('email') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="flex justify-end">
+                <button type="button" onclick="closeModal('profileModal')" class="mr-2 px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-200">Cancel</button>
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-[#011B33]">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 
-        <script>
-                // DROPDOWN START
-                // Select the toggle button, dropdown menu, and dropdown items
-                const dropdownToggle = document.getElementById('dropdownToggle');
-                const dropdownMenu = document.getElementById('dropdownMenu');
-                const dropdownItems = document.querySelectorAll('.dropdown-item');
+        <!-- Address Modal -->
+        <div id="addressModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 items-center justify-center">
+                <div class="bg-white p-6 rounded-lg w-full max-w-md">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-bold text-[#011B33]">Edit Address</h3>
+                        </div>
 
-                // Add click event listener to the toggle button
-                dropdownToggle.addEventListener('click', function () {
-                // Toggle the visibility of the dropdown menu
-                dropdownMenu.classList.toggle('hidden');
-                });
+                        <form action="{{ route('profile.updateAddress') }}" method="POST">
+                            @csrf
+                           
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                            <label class="text-sm text-gray-600">House no.</label>
+                                            <input type="text" name="addressHouse" value="{{ Auth::user()->addressHouse }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                                    </div>
 
-                // Add click event listener to each dropdown item
-                dropdownItems.forEach((item) => {
-                item.addEventListener('click', function () {
-                        // Close the dropdown menu when a dropdown item is clicked
-                        dropdownMenu.classList.add('hidden');
-                });
-                });
-                // DROPDOWN END
+                                    <div>
+                                            <label class="text-sm text-gray-600">Street Name</label>
+                                            <input type="text" name="addressStreet" value="{{ Auth::user()->addressStreet }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                                    </div>
 
-                // Get the hamburger button, mobile menu, and close button
-                const hamburgerMenu = document.getElementById('hamburgerMenu');
-                const mobileMenu = document.getElementById('mobileMenu');
-                const closeMenuButton = document.getElementById('closeMenu');
+                                    <div>
+                                            <label class="text-sm text-gray-600">Barangay</label>
+                                            <input type="text" name="addressBarangay" value="{{ Auth::user()->addressBarangay }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                                    </div>
 
-                // Toggle mobile menu visibility when hamburger button is clicked
-                hamburgerMenu.addEventListener('click', function () {
-                mobileMenu.classList.toggle('hidden');
-                });
+                                    <div>
+                                            <label class="text-sm text-gray-600">City/Municipality</label>
+                                            <input type="text" name="addressCity" value="{{ Auth::user()->addressCity }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                                    </div>
+                            </div>
+                    
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                            <label class="text-sm text-gray-600">Province</label>
+                                            <input type="text" name="addressProvince" value="{{ Auth::user()->addressProvince }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                                    </div>
 
-                // Close the mobile menu when the close button (X) is clicked
-                closeMenuButton.addEventListener('click', function () {
-                mobileMenu.classList.add('hidden');
-                });
+                                    <div>
+                                            <label class="text-sm text-gray-600">Zip Code</label>
+                                            <input type="text" name="addressZip" value="{{ Auth::user()->addressZip }}" class="w-full mt-1 px-3 py-2 border rounded bg-gray-100 text-gray-800" required>
+                                    </div>
+                            </div>
 
-        </script>
+                            <div class="flex justify-end">
+                                    <button type="button" onclick="closeModal('addressModal')" class="mr-2 px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-200">Cancel</button>
+                                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-[#011B33]">Save</button>
+                            </div>
+                        </form>
+                </div>
+        </div>
+</main>
 
-</body>
-</html>
+
+
+{{-- TO BE REMOVED --}}
+{{-- <script>
+        // Function to open a modal by ID
+        function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+                modal.classList.remove('hidden'); // Remove the hidden class
+                modal.classList.add('flex'); // Add the flex class to display the modal
+        }
+        }
+
+        // Function to close a modal by ID
+        function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+                modal.classList.add('hidden'); // Add the hidden class to hide the modal
+                modal.classList.remove('flex'); // Remove the flex class
+        }
+        }
+
+</script> --}}
+
+@include('CFooter')

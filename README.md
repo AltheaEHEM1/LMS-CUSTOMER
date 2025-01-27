@@ -1,5 +1,6 @@
 # LMS AND AMS 
 
+php artisan serve --host=127.0.0.2 --port=8000
 
 ## Project Setup
 ### Step 1: Clone the Repository

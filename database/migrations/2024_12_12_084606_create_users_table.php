@@ -8,8 +8,10 @@ return new class extends Migration
 {
     public function up()
     {
+        // Users Table
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+
             // Personal Information
             $table->string('firstName');
             $table->string('middleInitial')->nullable();
@@ -18,7 +20,7 @@ return new class extends Migration
             $table->string('dobDay');
             $table->string('dobYear');
             $table->string('gender');
-            
+
             // Address Information
             $table->string('addressHouse');
             $table->string('addressStreet');
@@ -26,18 +28,38 @@ return new class extends Migration
             $table->string('addressCity');
             $table->string('addressProvince');
             $table->string('addressZip');
-            
+
             // Account Information
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('photo_path')->nullable(); // Added photo_path column
             $table->rememberToken();
             $table->timestamps();
+        });
+
+        // Sessions Table
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->longText('payload');
+            $table->integer('last_activity')->index();
+        });
+
+        // Password Reset Tokens Table
+        Schema::create('password_reset_tokens', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('password_reset_tokens'); // Drop Password Reset Tokens Table
+        Schema::dropIfExists('sessions');            // Drop Sessions Table
+        Schema::dropIfExists('users');               // Drop Users Table
     }
 };

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/tabicon.png">
+    <title>Novella Sign-Up</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <title>Novella</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    @vite('resources/js/Csignup2.js')
 </head>
 <body class="bg-[#E4ECFF] font-poppins">
 
@@ -23,7 +25,7 @@
                 <p class="text-lg lg:text-2xl mt-2">with Novella</p>
                 <p class="mt-6 lg:mt-10 text-sm lg:text-lg text-[#BBB9B9]">
                     Already have an account? 
-                    <a href="#" class="underline hover:text-[#011B33]">Login</a>
+                    <a href="login_customer" class="underline hover:text-[#011B33]">Login</a>
                 </p>
             </div>
         </div>
@@ -44,13 +46,6 @@
                     <div class="w-6 h-6 flex items-center justify-center rounded-full bg-[#011B33] text-white text-sm">2</div>
                     <p class="text-[#011B33] font-semibold text-xs">Second Step</p>
                     <p class="text-gray-500 font-medium text-xs text-center">Novella Account</p>
-                </div>
-
-                <div class="hidden lg:block lg:w-1/3 h-[2px] bg-gray-300"></div>
-                <div class="flex flex-col items-center space-y-1">
-                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 text-gray-500 text-sm">3</div>
-                    <p class="text-[#011B33] font-semibold text-xs">Third Step</p>
-                    <p class="text-gray-500 font-medium text-xs text-center">Account Information</p>
                 </div>
             </div>
 
@@ -75,7 +70,6 @@
                 <input type="hidden" name="addressProvince" value="{{ $stepOneData['addressProvince'] ?? '' }}">
                 <input type="hidden" name="addressZip" value="{{ $stepOneData['addressZip'] ?? '' }}">
 
-
                 <div class="grid grid-row-4 lg:grid-row-4 gap-4">
                     <!-- Username -->
                     <div class="w-[80%]">
@@ -94,23 +88,22 @@
 
                     <!-- Password -->
                     <div class="w-[80%] relative">
-                        <label for="password" class="block text-sm font-medium text-gray-700">
+                        <label for="passwordField" class="block text-sm font-medium text-gray-700">
                             Password <span class="text-red-500">*</span>
                         </label>
                         <div class="relative w-full mt-1">
                             <input 
                                 type="password" 
                                 placeholder="Enter your password" 
-                                id="password" 
+                                id="passwordField" 
                                 name="password" 
                                 required 
                                 class="w-full border border-[#011B33] rounded-md p-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                            
                             <!-- Toggle Icon -->
                             <span 
-                                class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700" 
-                                onclick="togglePassword('password')">
-                                <img id="passwordIcon" src="images/show-password.png" class="h-5 w-5">
+                                id="togglePassword" 
+                                class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-eye"></i>
                             </span>
                         </div>
                         <p class="text-red-500 text-sm mt-1 hidden" id="passwordError">Password is required.</p>
@@ -118,26 +111,41 @@
 
                     <!-- Confirm Password -->
                     <div class="w-[80%] relative">
-                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700">
+                        <label for="confirmPasswordField" class="block text-sm font-medium text-gray-700">
                             Confirm Password <span class="text-red-500">*</span>
                         </label>
                         <div class="relative w-full mt-1">
                             <input 
                                 type="password" 
                                 placeholder="Enter your password again" 
-                                id="confirmPassword" 
+                                id="confirmPasswordField" 
                                 name="confirmPassword" 
                                 required 
                                 class="w-full border border-[#011B33] rounded-md p-2 pr-10 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-
-                            <!-- Toggle Icon for Confirm Password -->
+                            <!-- Toggle Icon -->
                             <span 
-                                class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700" 
-                                onclick="togglePassword('confirmPassword')">
-                                <img id="confirmPasswordIcon" src="images/show-password.png" class="h-5 w-5">
+                                id="toggleConfirmPassword" 
+                                class="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-eye"></i>
                             </span>
                         </div>
                         <p class="text-red-500 text-sm mt-1 hidden" id="confirmPasswordError">Passwords do not match.</p>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="w-[80%]">
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                id="terms" 
+                                name="terms" 
+                                required 
+                                class="w-4 h-4 border border-[#011B33] rounded focus:ring-2 focus:ring-blue-500">
+                            <label for="terms" class="ml-2 text-sm text-gray-700">
+                                I agree to the <a href="#" id="termsLink" class="text-blue-500 hover:underline">Terms and Conditions</a>.
+                            </label>
+                        </div>
+                        <p id="termsError" class="text-red-500 text-sm hidden">You must agree to the terms and conditions.</p>
                     </div>
 
                     <!-- General Error -->
@@ -148,137 +156,55 @@
                     <div id="singleFieldErrorMessage" class="text-red-500 text-sm hidden">
                         Please fill out the missing field.
                     </div>
-
-
                 </div>
 
                 <!-- Submit Button -->
-                <div class="flex justify-end space-x-10 space-x-5"> 
-                    Step 1 link (to go back)
-                    <a href="part1" class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition text-center">Step 1</a>
-            
-                    <!-- Submit Button to go to signup-3 -->
-                    <button type="submit">Register</button>
-                            
+                <div class="flex justify-end space-x-5"> 
+                    <button type="submit" class="w-1/4 py-3 bg-[#011B33] text-white rounded-md hover:bg-blue-600 transition text-center">Register</button>
                 </div>
             </form>
         </div>
     </section>
 
+    <!-- Terms and Conditions Modal -->
+    <div id="termsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-2xl">
+            <h2 class="text-xl font-semibold mb-4">Terms and Conditions</h2>
+            <div class="max-h-[60vh] overflow-y-auto">
+                <p class="text-sm text-gray-700">
+                    By using Novella, you agree to the following terms and conditions:
+                </p>
+                <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
+                    <li>Your data will be collected and used to improve your experience.</li>
+                    <li>We will not share your data with third parties without your consent.</li>
+                    <li>You can request to delete your data at any time.</li>
+                    <li>We reserve the right to update these terms and conditions.</li>
+                </ul>
+            </div>
+            <div class="mt-6 flex justify-end">
+                <button id="closeTermsModal" class="px-4 py-2 bg-[#011B33] text-white rounded-md hover:bg-blue-600">Close</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-
-        // Toggle password visibility
-            function togglePassword(fieldId) {
-            const field = document.getElementById(fieldId);
-            const icon = document.getElementById(fieldId + 'Icon');
-
-            // Toggle the password field type
-            const isPassword = field.type === "password";
-            field.type = isPassword ? "text" : "password";
-
-            // Toggle the icon
-            if (isPassword) {
-                icon.src = "images/hide-password.png"; // Replace with the path to your "hide" icon
-            } else {
-                icon.src = "images/show-password.png"; // Replace with the path to your "show" icon
-            }
-        }
-
-        // Real-time input validation (optional)
-                document.querySelectorAll("#signupForm input").forEach(input => {
-                input.addEventListener("input", function () {
-                const errorId = this.id + "Error";
-
-                document.getElementById(errorId)?.classList.add("hidden"); // Hide specific error
-                document.getElementById("emailErrorInvalid").classList.add("hidden"); // Hide general error
-                document.getElementById("formErrorMessage").classList.add("hidden"); // Hide general error
-                document.getElementById("singleFieldErrorMessage").classList.add("hidden"); // Hide single field error
-
-            });
+        // Open Terms and Conditions Modal
+        document.getElementById('termsLink').addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default link behavior
+            document.getElementById('termsModal').classList.remove('hidden');
         });
 
-    
-        // Validate the form and show error messages if fields are missing
-        document.getElementById("signupForm").addEventListener("submit", function (event) {
-            // Get field values
-            const username = document.getElementById("username").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-            const confirmPassword = document.getElementById("confirmPassword").value.trim();
+        // Close Terms and Conditions Modal
+        document.getElementById('closeTermsModal').addEventListener('click', function () {
+            document.getElementById('termsModal').classList.add('hidden');
+        });
 
-            let hasErrors = false;
-
-            // Clear previous error messages
-            document.querySelectorAll(".error-message").forEach((error) => {
-                error.classList.add("hidden");
-            });
-
-            // Clear general error message
-            const generalError = document.getElementById("formErrorMessage");
-            generalError.classList.add("hidden");
-
-            // Check for any empty fields
-            if (!username || !email || !password || !confirmPassword) {
-                formErrorMessage.textContent = "Please fill empty fields.";
-                formErrorMessage.classList.remove("hidden");
-                hasErrors = true;
-            }
-
-            // Validate username
-            if (!username) {
-                document.getElementById("usernameError").textContent = "Username is required.";
-                document.getElementById("usernameError").classList.remove("hidden");
-                hasErrors = true;
-            } else {
-                const invalidCharsPattern = /[&=+,<>]/;
-                if (invalidCharsPattern.test(username)) {
-                    document.getElementById("usernameError").textContent = 
-                        "Username cannot contain &, =, +, comma, <, >.";
-                    document.getElementById("usernameError").classList.remove("hidden");
-                    hasErrors = true;
-                }
-            }
-
-            // Validate email
-            if (!email) {
-                document.getElementById("emailError").textContent = "Email is required.";
-                document.getElementById("emailError").classList.remove("hidden");
-                hasErrors = true;
-            } else {
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(email)) {
-                    document.getElementById("emailErrorInvalid").textContent = "Invalid email format.";
-                    document.getElementById("emailErrorInvalid").classList.remove("hidden");
-                    hasErrors = true;
-                }
-            }
-
-            // Validate password
-            if (!password) {
-                document.getElementById("passwordError").textContent = "Password is required.";
-                document.getElementById("passwordError").classList.remove("hidden");
-                hasErrors = true;
-            }
-
-            // Validate confirm password
-            if (!confirmPassword) {
-                document.getElementById("confirmPasswordError").textContent = 
-                    "Please confirm your password.";
-                document.getElementById("confirmPasswordError").classList.remove("hidden");
-                hasErrors = true;
-            } else if (confirmPassword !== password) {
-                document.getElementById("confirmPasswordError").textContent = 
-                    "Passwords do not match.";
-                document.getElementById("confirmPasswordError").classList.remove("hidden");
-                hasErrors = true;
-            }
-
-            // Prevent form submission if there are errors
-            if (hasErrors) {
-                event.preventDefault();
+        // Close modal when clicking outside
+        document.getElementById('termsModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
             }
         });
     </script>
-
 </body>
 </html>
