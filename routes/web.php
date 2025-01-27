@@ -124,7 +124,7 @@ Route::get('/login', function () {
 
 // Handle Login Submission
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/user', [Registrationcontroller::class, 'getUser']);
+
 
 
 Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
