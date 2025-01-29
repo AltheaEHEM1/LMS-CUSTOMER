@@ -44,13 +44,13 @@
         @else
             @foreach($categories as $category)
                 <div class="category-card bg-white p-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300">
-                    <a href="/Hspecific_category/{{ $category->category }}" class="block">
+                    <a href="/Hspecific_category/{{ $category->id }}" class="block">
                         <img 
                             src="/images/300x200.png" 
                             alt="[category img]" 
                             class="w-full h-45 object-cover rounded-t-lg"
                         >
-                        <div class="p-1 text-center font-semibold">{{ $category->category }}</div>
+                        <div class="p-1 text-center font-semibold">{{ $category->name }}</div>
                     </a>
                 </div>
             @endforeach

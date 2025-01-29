@@ -5,7 +5,7 @@
         <!-- BOOKS -->
         <div class="bg-[#E4ECFF] min-h-screen p-8 mb-0">
                 <!-- Page Title -->
-                <h1 class="text-center text-2xl p-4 font-bold mb-">{{ $category }}</h1>
+                <h1 class="text-center text-2xl p-4 font-bold mb-">{{ $categoryId->name }}</h1>
 
                 <!-- Back Button -->
                 <div class="flex justify-start mb-7 ml-4 sm:ml-8 md:ml-16 lg:ml-60">
@@ -23,11 +23,11 @@
                                         <div class="space-y-6 w-full max-w-4xl">
                                                 <!-- Single Book -->
 
-                                                @foreach($books as $book)
+                                                @foreach($categoryId->books as $book)
                                                 <div class="flex sm:flex-row items-center bg-white shadow-md rounded-lg p-4 mx-auto hover:scale-105 transition-transform duration-300">
                                                         <!-- Link for Book Image and Details -->
-                                                        <a href="/Hbookdetailswithreserve/{{ $book->id }}" class="flex flex-col sm:flex-row items-center flex-grow text-left">
-                                                        <!-- Book Image -->
+                                                        <a href="{{ route('home.book', ['book' => $book->id, 'category' => $categoryId->id]) }}"class="flex flex-col sm:flex-row items-center flex-grow text-left">View Details</a>
+                                                                <!-- Book Image -->
                                                         <img src="{{ $book->photo }}" alt="{{ $book->title }}" 
                                                                 class="w-24 h-32 rounded-lg sm:w-32 sm:h-40 object-cover">
 

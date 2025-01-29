@@ -41,11 +41,11 @@
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Description:</p>
-                    <p class="inline">{{ $book->description }}</p>
+                    <p class="inline"></p>
                 </div>
                 <div>
                     <p class="font-semibold inline mr-2">Loan Period:</p>
-                    <p class="inline">{{ $book->loan_period }}</p>
+                    <p class="inline"></p>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                 <!-- Borrowing Details -->
                 <div class="mt-6 space-y-2">
                     <h3 class="font-semibold text-[#011b33]">Borrowing Details</h3>
-                    <p class="text-sm text-gray-600"><strong>Book Stock:</strong> {{ $book->stock }}</p>
+                    <p class="text-sm text-gray-600"><strong>Book Stock:</strong> {{ $book->copies }}</p>
                     <p class="text-sm text-gray-600"><strong>Status:</strong> In Library</p>
                     <div>
                         <input type="hidden" name="book_id" value="{{ $book->id }}">

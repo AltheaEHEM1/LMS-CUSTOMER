@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\RegistrationController;
 //////////////////////////////////////////////////////////
 
 
@@ -80,7 +81,7 @@ Route::get('/Hspecific_category/{category}', [HomeController::class, 'getBooksBy
 // Route::get('/Hbookdetailswithreserve', function () {
 //         return view('Hbookdetailswithreserve');
 //     });
-Route::get('/Hbookdetailswithreserve/{id}', [HomeController::class, 'getBookById'])->name('home.book');
+Route::get('/Hbookdetailswithreserve/{book}/{category}', [HomeController::class, 'getBookById'])->name('home.book');
 
 Route::get('/ABOUTUSpage', function () {
         return view('ABOUTUSpage');
@@ -105,7 +106,7 @@ Route::post('/reserve', [ReservationController::class, 'reserveBook'])->name('re
 Route::post('/bookmark', [BookmarkController::class, 'bookmarkBook'])->name('bookmark.book');
 Route::post('/unbookmark', [BookmarkController::class, 'unbookmarkBook'])->name('unbookmark.book');
 
-use App\Http\Controllers\RegistrationController;
+
 
 Route::get('/register-step-one', [RegistrationController::class, 'showStepOne'])->name('register.step.one');
 Route::post('/register-step-one', [RegistrationController::class, 'handleStepOne'])->name('register.step.one');

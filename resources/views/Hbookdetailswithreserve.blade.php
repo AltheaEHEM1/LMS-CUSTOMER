@@ -6,7 +6,7 @@
     <div class="w-full max-w-4xl">
         <!-- Back Button -->
         <div class="flex justify-start mb-4 w-full">
-            <a href="/Hspecific_category/{{ $book->category }}" class="text-[#000] hover:text-[#028ABE] flex items-center">
+            <a href="/Hspecific_category/{{ $category->id }}" class="text-[#000] hover:text-[#028ABE] flex items-center">
                 <i class="fas fa-arrow-left"></i>
                 <span class="ml-2">Back</span>
             </a>
@@ -58,12 +58,8 @@
                         <p class="inline">{{ $book->pages }}</p>
                     </div>
                     <div>
-                        <p class="font-semibold inline mr-2">Tags:</p>
-                        <p class="inline">{{ $book->tag }}</p>
-                    </div>
-                    <div>
                         <p class="font-semibold inline mr-2">Stock:</p>
-                        <p class="inline">{{ $book->stock }}</p>
+                        <p class="inline">{{ $book->copies }}</p>
                     </div>
                     <div>
                         <p class="font-semibold inline mr-2">Language</p>
@@ -82,10 +78,10 @@
                     @endauth
                     <div class="text-center">
                         <p class="text-lg font-semibold">Status:</p>
-                        @if($book->status == 'Available')
-                        <p class="text-green-600">{{ $book->status }}</p>
+                        @if($book->copies > 0)
+                        <p class="text-green-600">Available</p>
                         @else
-                        <p class="text-red-600">{{ $book->status }}</p>
+                        <p class="text-red-600">Not Available</p>
                         @endif
                     </div>
                 </div>
