@@ -63,10 +63,6 @@
                     <p class="inline">{{ $user->firstName }} {{ $user->middleInitial }} {{ $user->lastName }}</p>
                 </div>
                 <div>
-                    <p class="font-semibold inline mr-2">Phone no.:</p>
-                    <p class="inline"> +639123456789</p>
-                </div>
-                <div>
                     <p class="font-semibold inline mr-2">Email Address:</p>
                     <p class="inline">{{ $user->email }}</p>
                 </div>
