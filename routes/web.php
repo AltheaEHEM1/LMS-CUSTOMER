@@ -1,7 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -10,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\NotificationController;
-
+use App\Http\Controllers\RegisterController;
 //////////////////////////////////////////////////////////
 
 
@@ -109,10 +108,10 @@ Route::post('/unbookmark', [BookmarkController::class, 'unbookmarkBook'])->name(
 
 
 
-Route::get('/register-step-one', [RegistrationController::class, 'showStepOne'])->name('register.step.one');
-Route::post('/register-step-one1', [RegistrationController::class, 'handleStepOne'])->name('register.step.one1');
-Route::get('/register-step-two', [RegistrationController::class, 'showStepTwo'])->name('register.step.two');
-Route::post('/register', [RegistrationController::class, 'register'])->name('register');
+Route::get('/registeration-step-one', [RegisterController::class, 'showStepOne'])->name('register.step.one');
+Route::post('/registeration-step-one1', [RegisterController::class, 'handleStepOne'])->name('register.step.one1');
+Route::get('/registeration-step-two', [RegisterController::class, 'showStepTwo'])->name('register.step.two');
+Route::post('/registered', [RegisterController::class, 'register'])->name('register');
 
 // Route::get('/HOMElandingpage_customer', function () {
 //      return view('HOMElandingpage_customer');

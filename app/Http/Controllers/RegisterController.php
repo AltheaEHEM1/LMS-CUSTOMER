@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User; // If you're using the User model
+use App\Models\User;
 
-class RegistrationController extends Controller
+class RegisterController extends Controller
 {
     public function getUser(Request $request)
     {
