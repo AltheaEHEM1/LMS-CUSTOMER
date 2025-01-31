@@ -9,7 +9,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\RegistrationController;
+use App\Http\BaseController\RegistrationController;
+
 //////////////////////////////////////////////////////////
 
 
