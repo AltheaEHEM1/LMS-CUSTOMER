@@ -76,7 +76,7 @@ Route::get('/Hspecific_category/{category}', [HomeController::class, 'getBooksBy
 
 
 Route::get('/PAGEReservation', function () {
-    return view('RESERVATIONreservationpage');
+    return view('reservation_page');
 });
 
 Route::get('/RESERVATIONreservation-page.render', [ReservationController::class, 'index'])->name('reservation');
