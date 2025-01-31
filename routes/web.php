@@ -73,8 +73,8 @@ Route::get('/Hspecific_category/{category}', [HomeController::class, 'getBooksBy
 //         return view('HOMElandingpage_customer')->name('HOMElandingpage_customer');
 //     });
 
-Route::get('/RESERVATIONreservation-page1', function () {
-        return view('RESERVATIONreservation-page');
+Route::get('/RESERVATIONreservation-page2', function () {
+        return view('RESERVATIONreservation-page1');
     });
 
 Route::get('/RESERVATIONreservation-page', [ReservationController::class, 'index'])->name('reservation');
