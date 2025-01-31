@@ -54,7 +54,7 @@
             <p class="text-[#011B33] font-semibold text-lg lg:text-xl mb-6">Personal Information</p>
 
             <!-- Form -->
-            <form action="{{ route('register.step.one') }}" method="POST" class="space-y-6">
+            <form action="{{ route('register.step.one1') }}" method="POST" class="space-y-6">
                 @csrf
                     
                 <!-- Personal Information -->

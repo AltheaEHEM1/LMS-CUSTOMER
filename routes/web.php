@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RegistrationController;
@@ -111,7 +110,7 @@ Route::post('/unbookmark', [BookmarkController::class, 'unbookmarkBook'])->name(
 
 
 Route::get('/register-step-one', [RegistrationController::class, 'showStepOne'])->name('register.step.one');
-Route::post('/register-step-one', [RegistrationController::class, 'handleStepOne'])->name('register.step.one');
+Route::post('/register-step-one1', [RegistrationController::class, 'handleStepOne'])->name('register.step.one1');
 Route::get('/register-step-two', [RegistrationController::class, 'showStepTwo'])->name('register.step.two');
 Route::post('/register', [RegistrationController::class, 'register'])->name('register');
 

@@ -117,5 +117,4 @@ class RegistrationController extends Controller
     // Redirect to the home page
     return redirect('/')->with('success', 'Account created successfully!');
     }
-
 }
