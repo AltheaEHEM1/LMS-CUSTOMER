@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -9,7 +11,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\RegistrationController;
 
 //////////////////////////////////////////////////////////
 
