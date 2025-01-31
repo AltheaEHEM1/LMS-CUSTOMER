@@ -9,4 +9,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::get('/user/fetch', [RegistrationController::class, 'getUser']);
+Route::get('/user/fetch', [RegisterController::class, 'getUser']);
