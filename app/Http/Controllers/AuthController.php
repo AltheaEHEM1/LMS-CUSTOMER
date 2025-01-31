@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Routing\Controller as BaseController;
 
-class AuthController extends BaseController
+class AuthController extends Controller
 {
     public function login(Request $request)
     {

@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Routing\Controller as BaseController;
+use App\Models\User; // If you're using the User model
 
-
-class RegistrationController extends BaseController
+class RegistrationController extends Controller
 {
     public function getUser(Request $request)
     {
