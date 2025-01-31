@@ -16,7 +16,7 @@
         <div class="flex-shrink-0 w-40 mx-auto items-center text-center lg:w-48 lg:mx-0">
             <img src="{{ $book->photo }}" alt="{{ $book->title }}" class="w-full h-72 rounded-lg shadow-md">
             <h2 class="text-xl font-bold mt-4">{{ $book->title }}</h2>
-            <p class="text-gray-600">Rizal, Jose P.</p>
+            <p class="text-gray-600">{{$book->author}}</p>
         </div>
 
         <!-- Book Details Information -->

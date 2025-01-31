@@ -42,10 +42,6 @@
                         <p class="inline">{{ $book->isbn_13 }}</p>
                     </div>
                     <div>
-                        <p class="font-semibold inline mr-2">ASIN:</p>
-                        <p class="inline">{{ $book->asin }}</p>
-                    </div>
-                    <div>
                         <p class="font-semibold inline mr-2">Published:</p>
                         <p class="inline">{{ $book->year }}</p>
                     </div>
