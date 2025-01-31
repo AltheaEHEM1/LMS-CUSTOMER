@@ -17,7 +17,7 @@ class ReservationController extends Controller
             ->select('*', 'borrows.status as borrow_status')
             ->get();
 
-        return view('RESERVATIONreservation-page1', ['reservations' => $reservations]);
+        return view('/RESERVATIONreservation-page1', ['reservations' => $reservations]);
     }
 
     public function reserveBook(Request $request)
