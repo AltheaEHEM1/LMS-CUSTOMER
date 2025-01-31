@@ -85,7 +85,7 @@
                             <h2 class="text-xl font-semibold">with Novella</h2>
                         </div>
                         <div class="text-left text-white mt-auto"> 
-                            Need an account? <a href="signup" class="text-blue-300 underline hover:text-blue-500">Sign up</a>
+                            Need an account? <a href="/register-step-one" class="text-blue-300 underline hover:text-blue-500">Sign up</a>
                         </div>
                     </div>
                 </div>
